@@ -1,0 +1,247 @@
+﻿<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="keywords" content="danse eybens, danse, eybens, laura mosio, 
+              jazz eybens, modern jazz eybens, association impulstion, impulsion danse, impulsion eybens,
+              cours de danse eybens, cours de danse, cours de danse laura mosio, cours de danse impulsion,
+              danse enfant eybens, danse adulte eybens, cours de danse enfant eybens" />
+        <title>Impulsion</title>
+        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/jquery.js" type="text/javascript"></script>
+        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/loading.js" type="text/javascript"></script>
+        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/menu.js" type="text/javascript"></script>
+        <?php
+        // get the current controller
+        $controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+        $action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+        ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/global.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/menu.css" />
+        <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/global.js" ></script>
+        <?php if ($controller == "index") { ?>	
+                    <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/index.css" />
+        <?php } ?>
+        <?php if ($controller == "liens") { ?>
+            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/contact.js" ></script>	
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/body.css" />	
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/contact.css" />
+        <?php } ?>
+        <?php if ($controller == "livreor") { ?>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/livreor.css" />  
+            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/livreor.js" ></script>          
+        <?php } ?>            
+        <?php if ($controller == "cours") { ?>  
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/body.css" />
+            <?php if ($action == "index") { ?>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/coursIndex.css" />
+            <?php } ?>           
+            <?php if ($action == "plan") { ?>
+                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/plan.css" />
+            <?php } ?>  
+            <?php if ($action == "tarif") { ?>
+                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/tarif.css" />
+            <?php } ?>   
+            <?php if ($action == "planning") { ?>
+                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/planning.css" />
+            <?php } ?>    
+            <?php if ($action == "dossier") { ?>
+                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/dossier.css" />
+            <?php } ?>
+        <?php } ?>          
+        <?php if ($controller == "galerie") { ?>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/galerie.css" />
+            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/rand_photo.js" ></script>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/lib/thickbox.css" />
+            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/thickbox.js" ></script>
+        <?php } ?>  
+        <?php if ($controller == "video") { ?> 
+            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/jwplayer.js" ></script>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/video.css" />
+        <?php } ?>            
+    </head> 
+    <body>
+        <div id="container">
+            <div id="menu_section">
+                <div id="menu">
+                    <?php if ($controller == "index") { ?>
+                        <img src='/public/image/btn-acc-in.jpg' 
+                             alt="Acceuil"
+                             width="104"
+                             height="42" />
+                    <?php } else { ?> 
+                        <a href="<?php echo $this->url(array('controller' => "index", "action" => "index"), "", true); ?>">
+                            <img src='/public/image/btn-acc-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-acc-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-acc-over.jpg'" 
+                                 alt="Acceuil"
+                                 width="104"
+                                 height="42" />
+                        </a>               
+                    <?php } ?>  
+
+                    <?php if ($controller == "cours") { ?>
+                        <img id="menuCours"
+                            src='/public/image/btn-cours-in.jpg' 
+                            alt="Les cours"
+                            width="132"
+                            height="42" />
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "index"), "", true); ?>">
+                            <img id="menuCours"
+                                 src='/public/image/btn-cours-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-cours-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-cours-over.jpg'" 
+                                 alt="Les cours"
+                                 width="132"
+                                 height="42" />
+                        </a>
+                    <?php } ?>
+
+                    <?php if ($controller == "liens") { ?>
+                        <img src='/public/image/btn-con-in.jpg' 
+                             alt="Contacts" 
+                             width="121"
+                             height="42"/>
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "liens", "action" => "index"), "", true); ?>">
+                            <img src='/public/image/btn-con-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-con-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-con-over.jpg'" 
+                                 alt="Contacts"
+                                 width="121"
+                                 height="42" />
+                        </a>
+                    <?php } ?>
+
+                    <?php if ($controller == "galerie") { ?>
+                        <img src='/public/image/btn-gal-in.jpg' 
+                             alt="Galerie Photos" 
+                             width="196"
+                             height="42"/>
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "galerie", "action" => "index"), "", true); ?>">
+                            <img src='/public/image/btn-gal-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-gal-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-gal-over.jpg'" 
+                                 alt="Galerie Photos"
+                                 width="196"
+                                 height="42" />
+                        </a>
+                    <?php } ?>
+
+                    <?php if ($controller == "livreor") { ?>
+                        <img src='/public/image/btn-lor-in.jpg' 
+                             alt="Livre d'or"
+                             width="129"
+                             height="42" />
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "livreor", "action" => "index"), "", true); ?>">
+                            <img src='/public/image/btn-lor-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-lor-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-lor-over.jpg'" 
+                                 alt="Livre d'or" 
+                                 width="129"
+                                 height="42"/>
+                        </a>
+                    <?php } ?>
+                        
+                    <?php if ($controller == "compagnie") { ?>
+                        <img src='/public/image/btn-com-in.jpg' 
+                             alt="Companie"
+                             width="155"
+                             height="42" />
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "compagnie", "action" => "index"), "", true); ?>">
+                            <img src='/public/image/btn-com-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-com-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-com-over.jpg'" 
+                                 alt="Companie" 
+                                 width="155"
+                                 height="42"/>
+                        </a>
+                    <?php } ?>
+                        
+                    <img src='/public/image/btn-lien-out.jpg' 
+                         alt="Liens" 
+                         width="85"
+                         height="42"/>
+                    
+                    <?php $auth = Zend_Auth::getInstance(); 
+                    if ($auth->hasIdentity()) {
+                    echo '<span id="loginfields">Bonjour ' . $auth->getIdentity()->username
+                    . ' - <a href="'
+                    . $this->url(array('controller' => "login", "action" => "logout"))
+                    . '">se déconnecter</a></span>';
+                    }
+                    ?>
+                </div>       
+                <div id="sousMenuCours">
+                    <?php if ($controller == "cours" && $action == "plan") { ?>
+                        <img src='/public/image/btn-plan-in.png'  
+                             alt="Plan des cours"
+                             width="76"
+                             height="43" />  
+                     <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "plan"), "", true); ?>">
+                            <img src='/public/image/btn-plan-out.png' 
+                                 onmouseout="this.src='/public/image/btn-plan-out.png'" 
+                                 onmouseover="this.src='/public/image/btn-plan-over.png'" 
+                                 alt="Plan des cours"
+                                 width="76"
+                                 height="43" />
+                        </a>
+                    <?php } ?>
+                    <?php if ($controller == "cours" && $action == "planning") { ?>
+                        <img src='/public/image/btn-planing-in.png' 
+                             alt="Planning des cours"
+                             width="116"
+                             height="43" />
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "planning"), "", true); ?>">
+                            <img src='/public/image/btn-planing-out.png' 
+                                 onmouseout="this.src='/public/image/btn-planing-out.png'" 
+                                 onmouseover="this.src='/public/image/btn-planing-over.png'" 
+                                 alt="Planning des cours"
+                                 width="116"
+                                 height="43" />
+                        </a>
+                    <?php } ?>
+                    <?php if ($controller == "cours" && $action == "tarif") { ?>
+                        <img src='/public/image/btn-tarifs-in.png' 
+                             alt="Les tarifs"
+                             width="78"
+                             height="43" />    
+                     <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "tarif"), "", true); ?>">
+                            <img src='/public/image/btn-tarifs-out.png' 
+                                 onmouseout="this.src='/public/image/btn-tarifs-out.png'" 
+                                 onmouseover="this.src='/public/image/btn-tarifs-over.png'" 
+                                 alt="Les tarifs"
+                                 width="78"
+                                 height="43" />
+                        </a>
+                    <?php } ?>
+                    <?php if ($controller == "cours" && $action == "dossier") { ?>
+                        <img src='/public/image/btn-inscription-in.png' 
+                             alt="Dossiers d'inscription"
+                             width="154"
+                             height="43" />
+                     <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "dossier"), "", true); ?>">
+                            <img src='/public/image/btn-inscription-out.png' 
+                                 onmouseout="this.src='/public/image/btn-inscription-out.png'" 
+                                 onmouseover="this.src='/public/image/btn-inscription-over.png'" 
+                                 alt="Dossiers d'inscription"
+                                 width="154"
+                                 height="43" />
+                        </a>
+                    <?php } ?>
+                </div>
+            </div>         
+            <div id="body"> 
+                <?php echo $this->layout()->content; ?>
+            </div>  	
+            <div id="loading"></div>
+        </div>
+    </body>
+</html>

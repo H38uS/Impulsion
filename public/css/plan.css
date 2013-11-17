@@ -1,0 +1,18 @@
+#entete {
+	font-size: 120%;
+	padding-top: 16px;
+	margin-bottom:34px;
+}
+
+.maps
+{
+    border: 1px solid black;
+    width: 600px; height: 400px;
+    margin:auto;
+    margin-bottom: 50px;
+    color: black;
+}
+
+#plan {
+	padding-bottom: 1px;
+}

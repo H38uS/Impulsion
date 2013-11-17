@@ -1,0 +1,152 @@
+#container {
+    background: url("/public/image/fond-galerie.jpg"); /* override le fond d'écran */
+}
+
+#body {
+    top: 165px;
+    left: 0px;
+    height: 620px
+}
+
+/* **** Placement des dossiers **** */
+#dossierup1 {
+    position: absolute;
+    left:34px; 
+    top:0; 
+    width:105px; 
+    height:22px; 
+}
+#dossier1 {
+    position: absolute;
+    left:34px; 
+    top:67px; 
+    width:105px; 
+    height:200px; 
+}
+
+
+#dossierup2 {
+    position: absolute;
+    left:140px; 
+    top:0; 
+    width:108px; 
+    height:22px; 
+}
+#dossier2 {
+    position: absolute;
+    left:140px; 
+    top:67px; 
+    width:108px; 
+    height:200px; 
+}
+
+
+#dossierup3 {
+    position: absolute;
+    left:249px; 
+    top:0; 
+    width:102px; 
+    height:22px; 
+}
+#dossier3 {
+    position: absolute;
+    left:249px; 
+    top:67px; 
+    width:102px; 
+    height:200px; 
+}
+
+
+#dossierup4 {
+    position: absolute;
+    left:352px; 
+    top:0; 
+    width:100px; 
+    height:22px; 
+}
+#dossier4 {
+    position: absolute;
+    left:352px; 
+    top:67px; 
+    width:100px; 
+    height:200px; 
+}
+
+
+#dossierup5 {
+    position: absolute;
+    left:453px; 
+    top:0; 
+    width:97px; 
+    height:22px; 
+}
+#dossier5 {
+    position: absolute;
+    left:453px; 
+    top:67px; 
+    width:97px; 
+    height:200px; 
+}
+
+/* **** Placement des sous dossiers dossiers **** */
+#sousdossier {
+    position: absolute;
+    top: 335px;
+    left: 50px;
+    overflow: auto;
+    max-height: 284px;
+    width: 550px;
+}
+
+#sousdossier td {
+    text-align: center;    
+}
+
+.selected {
+    text-decoration: underline;
+    color: #0b61a8;
+}
+
+/* **** Espace avec les photos **** */
+#espacePhotos {
+    position: absolute;
+    left: 620px;
+    top: 100px;
+    height: 510px;
+    width: 600px;
+    overflow: auto;
+}
+
+#espacePhotos table
+{
+    margin: auto;
+}
+
+#espacePhotos .imagecontent {
+    border : 1px solid white;
+    background: #F1F3FF url("/public/image/loading.gif") no-repeat center;
+}
+
+#espacePhotos .imagecontent:hover {
+    border : 1px solid #136295;	    
+    -webkit-box-shadow: 0 2px 1px #136295;
+    box-shadow: 0 1px 10px #136295;
+}
+
+#espacePhotos td {
+    padding: 0 10px;
+    margin: auto;
+    text-align: center;
+}
+
+/* **** Photos aléatoire **** */
+#photo_aleatoire {
+    padding-top: 0px;
+    height: 200px;
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    left:175px; 
+    top: 385px;
+    text-align: center;
+}

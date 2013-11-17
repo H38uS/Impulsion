@@ -1,0 +1,79 @@
+<table id="coordonnee">
+	<tr>
+		<td class="firstcol">Pour les renseignements liés à la danse elle-même</td>
+		<td>Laura Mosio<br />Professeur de danse Modern' Jazz</td>
+		<td><img id="laura" class="sendemail imagecontent" src="<?php echo ROOT_TO_PUBLIC; ?>/image/e-mail.png" height="50" alt="Lui envoyer un email" /></td>
+                <td>tél : 06&nbsp;83&nbsp;83&nbsp;51&nbsp;67</td>
+	</tr>
+	<tr class="middle">
+		<td class="firstcol">Pour tous les renseignements d’ordre administratif : inscription, dossier d’inscription, questions sur les horaires, les jours, absence d’une (un) élève, etc.</td>
+		<td>Anita Petrowitch<br />Présidente de l'association Impulsion.</td>
+		<td><img id="anita" class="sendemail imagecontent" src="<?php echo ROOT_TO_PUBLIC; ?>/image/e-mail.png" height="50" alt="Lui envoyer un email" /></td>
+		<td>tél : 06&nbsp;62&nbsp;24&nbsp;68&nbsp;26</td>
+	</tr>
+	<tr>
+	    <td class="firstcol">Pour tout problème, ou suggestion concernant le site web</td>
+		<td>Jordan Mosio<br />Webmaster</td>
+		<td><img id="jordan" class="sendemail imagecontent" src="<?php echo ROOT_TO_PUBLIC; ?>/image/e-mail.png" height="50" alt="Lui envoyer un email" /></td>
+	</tr>
+</table>
+
+<form action="liens/sendemail" method="post" onsubmit="return checkform()">
+	<div>		
+		<table>
+			<tr>
+				<td>Envoyer un email à </td>
+				<td>
+					<select name="sendto">
+  						<option value="laura">Laura Mosio</option>
+  						<option value="anita">Anita Petrowitch</option>
+  						<option value="jordan">Jordan Mosio</option>
+					</select> 
+				</td>
+			</tr>
+			<tr>
+				<td>Votre adresse mail </td>
+				<td>
+					<input name="mailaddress" id="mailaddress" type="text" size="50" value="" />
+					<div class="error" id="mailerror"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Votre prénom</td>
+				<td>
+					<input name="firstname" id="firstname" type="text" size="20" value="" />
+					<div class="error" id="firstnameerror"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Votre nom</td>
+				<td>
+					<input name="surname" id="surname" type="text" size="20" value="" />
+					<div class="error" id="surnameerror"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Objet</td>
+				<td>
+					<input name="subject" id="subject" type="text" size="30" value="" />
+					<div class="error" id="subjecterror"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Message</td>
+				<td>
+					<textarea name="message" id="message" rows="5" cols="60" ></textarea>
+					<div class="error" id="messageareaerror"></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+    <div id="submit"><input type="submit" value="Envoyer !" /></div>
+</form> 
+
+<div class="droite">
+    <p>Les couriers sont à adresser à : <br />
+        Association Impulsion<br />
+        3, avenue du vercors<br />
+        38240 Meylan</p>
+</div>

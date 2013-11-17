@@ -1,0 +1,21 @@
+<?php if (!empty($this->rep_photo)) { 
+    $reps = $this->rep_photo;
+?>
+    <?php for ($i=1; $i<6; $i++) { ?>
+    <div id="dossierup<?php echo $i; ?>">
+        <img src='/public/image/dossier-0<?php echo $i; ?>-up.png' alt="" />
+    </div>
+    <div id="dossier<?php echo $i; ?>">
+        <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'folder' => $reps[$i-1]), null, true); ?>">
+            <img src='/public/image/dossier-0<?php echo $i; ?>.png'  alt="" />
+            <?php echo $reps[$i-1]; ?>
+        </a>
+    </div>
+    <?php } ?>
+<?php }?>
+
+<div id="photo_aleatoire">
+    <a href="<?php echo $this->init_photo; ?>" class="thickbox">
+        <img src="<?php echo $this->init_photo_small; ?>" class="imagecontent" alt="Photo aléatoire" height="200"/>
+    </a>
+</div>

@@ -1,0 +1,16 @@
+#container {
+    background: url("/public/image/fond-acceuil.jpg"); /* override le fond d'écran */
+}
+
+#body {
+    top:408px;
+    left:121px; 
+    width:350px; 
+    height: 350px;
+    font-size: 145%;
+    text-align: center;
+}
+
+h3 {
+    text-decoration: underline;
+}

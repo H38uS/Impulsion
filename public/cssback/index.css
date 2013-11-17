@@ -1,0 +1,34 @@
+.boxe
+{
+    margin-top:20px;
+    margin-left: 20px;
+    margin-right:20px;
+    text-align:center;
+    background-color:#000000;
+    color: #ffffff;
+    opacity: 0.8;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 2px 25px #136295;
+    -webkit-box-shadow: 0 2px 25px #136295;
+    box-shadow: 0 2px 25px #136295;
+    padding: 20px;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+}
+
+#gauche {
+    float: left;
+    background-image: url("/public/image/foulard.jpg");
+    padding: 170px 20px;
+    font-size: 110%;
+    width: 510px;
+    color: #2E97FF;
+}
+
+#droite {
+    float: right;    
+}

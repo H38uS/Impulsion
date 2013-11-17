@@ -1,0 +1,12 @@
+<div id="formulaire">
+    <form action="newmessage" method="post" onsubmit="return checkform()">
+
+        <div>Nom : <input name="auteur" id="auteur" type="text" size="50" value="" /></div>
+        <div class="error" id="nameerror"></div>
+
+        <div id="messagearea"><span id="messagetext">Message : </span><textarea name="commentaire" id="commentaire" rows="5" cols="60" ></textarea></div>
+        <div class="error" id="commenterror"></div>
+
+        <div><input type="submit" id="submit" value="Créer !" /></div>
+    </form> 
+</div>

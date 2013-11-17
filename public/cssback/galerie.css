@@ -1,0 +1,35 @@
+table
+{
+    margin: auto;
+}
+
+td
+{
+    padding: 0 50px;
+}
+
+.photo
+{
+    padding: 20px 20px;
+}
+
+#photo_aleatoire
+{
+    margin-top: 80px;
+    min-height: 210px;
+}
+
+.imagecontent {
+    border : 1px solid black;
+    background: #F1F3FF url("/public/image/loading.gif") no-repeat center;
+}
+
+.imagecontent:hover {
+    border : 1px solid white;	
+    -webkit-box-shadow: 0 2px 1px white;
+    box-shadow: 0 1px 10px white;
+}
+
+#dossiers {
+    margin-bottom: 20px;	
+}

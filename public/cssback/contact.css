@@ -1,0 +1,65 @@
+/* Les contacts */
+table {
+    padding: 20px 0;
+    margin: auto;
+}
+
+td {
+    padding: 5px 20px;	
+}
+
+.firstcol {
+    text-align: left;
+    max-width: 450px;
+}
+
+/* coordonne specific */
+#coordonnee {
+    border-spacing: 0px;
+}
+
+.middle td {
+    border-top: white solid 1px;
+    border-bottom: white solid 1px;
+}
+
+/* Le formulaire */
+form td {
+    text-align: left;	
+    vertical-align: top;
+}
+
+#messagearea
+{
+    display: block;
+}
+
+.sendemail
+{	
+    cursor:pointer;
+}
+
+.lien
+{
+    color: blue;
+    text-decoration:underline;
+}
+
+form
+{
+    display:none;
+    margin-top: 10px;	
+    padding-bottom: 10px;
+}
+
+/* unlight image */
+.imagecontent {
+    border : 1px solid black;	
+}
+
+.imagecontent:hover {
+    border : 1px solid white;	
+    -webkit-box-shadow: 0 2px 1px white;
+    box-shadow: 0 1px 10px white;
+}
+

@@ -1,0 +1,16 @@
+.ens-diaporama li
+{
+    list-style-type:none;
+    display : inline;
+}
+
+#photobar
+{
+    overflow:hidden;
+    height:100px;	
+}
+
+.diaporama
+{
+    position:relative;
+}
