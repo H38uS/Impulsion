@@ -161,10 +161,21 @@
                         </a>
                     <?php } ?>
                         
-                    <img src='/public/image/btn-lien-out.jpg' 
-                         alt="Liens" 
-                         width="85"
-                         height="42"/>
+                    <?php if ($controller == "links") { ?>
+                        <img src='/public/image/btn-lien-in.jpg' 
+                             alt="Liens" 
+                             width="85"
+                             height="42" />
+                    <?php } else { ?>
+                        <a href="<?php echo $this->url(array('controller' => "links", "action" => "index"), "", true); ?>">
+                            <img src='/public/image/btn-lien-out.jpg' 
+                                 onmouseout="this.src='/public/image/btn-lien-out.jpg';" 
+                                 onmouseover="this.src='/public/image/btn-lien-over.jpg'" 
+                                 alt="Liens" 
+                                 width="85"
+                                 height="42"/>
+                        </a>
+                    <?php } ?>
                     
                     <?php $auth = Zend_Auth::getInstance(); 
                     if ($auth->hasIdentity()) {
