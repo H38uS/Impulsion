@@ -24,6 +24,8 @@ class LivreorController extends Zend_Controller_Action {
     }
 
     public function newmessageAction() {
+        // Interdiction d'écrire des messages pour le moment
+        return;
         $table = new Default_Model_Messages();
         if ($this->_request->isPost()) {
             // on vire l'html
