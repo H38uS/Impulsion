@@ -10,12 +10,12 @@ class Default_Form_LoginForm extends Zend_Form {
     public function init() {
         $username = $this->addElement(
                 'text', 'username', array('filters' => array('StringTrim', 'StringToLower'),
-            'validators' => array('Alpha', array('StringLength', false, array(3, 20)),),
+            'validators' => array(array('StringLength', false, array(3, 20)),),
             'required' => true,
             'label' => 'Login'));
 
         $password = $this->addElement(
-                'password', 'password', array('filters' => array('StringTrim'), 'validators' => array('Alnum',
+                'password', 'password', array('filters' => array('StringTrim'), 'validators' => array(
                 array('StringLength', false, array(6, 20))),
             'required' => true,
             'label' => 'Mot de passe'));
