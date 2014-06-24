@@ -56,6 +56,9 @@ class LoginController extends Zend_Controller_Action {
             $storage->write($authAdapter->getResultRowObject(null, 'password'));
             $auth = Zend_Auth::getInstance();
             $auth->getIdentity()->username = $login;
+            if ($login === "connexion_bdd") {
+                $this->_redirect("bdd");
+            }
             $this->_redirect('livreor/suppression');
         } else {
             // Identifiants invalides
