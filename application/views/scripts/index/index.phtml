@@ -1,8 +1,6 @@
 <h3>&nbsp;&nbsp;Agenda&nbsp;&nbsp;</h3>
 
-<span class="bold">Mercredi 18 juin à 19h30</span><br />
-Répétition générale<br />
-<span class="bold">Vendredi 20 juin à 20h</span><br />
-Spectable<br />
-<span class="bold">6 septembre de 9h à 18h</span><br />
-Inscription - Renseignement<br />
+<?php foreach ($this->actualites as $actualite) { ?>
+<span class="bold"><?php echo $actualite['date']; ?></span><br />
+<?php echo $actualite['description']; ?><br />
+<?php } ?>

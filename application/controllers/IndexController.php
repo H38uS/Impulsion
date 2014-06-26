@@ -17,6 +17,8 @@ class IndexController extends Zend_Controller_Action {
         if (!strstr($this->getFrontController()->getBaseUrl(), "index.php")) {
             $this->_redirect("index.php");
         }
+        $model = new Default_Model_Actualites();
+        $this->view->actualites = $model->getActualites();
     }
 
 }
