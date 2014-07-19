@@ -1,0 +1,16 @@
+AuthName "Acces Restreint"
+AuthType Basic
+
+order allow,deny
+deny from all
+
+<Files "*.jpg">
+Order allow,deny
+allow from all
+</Files>
+
+<Files  "*.jpeg">
+Order allow,deny
+allow from all
+</Files>
+
