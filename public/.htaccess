@@ -1,0 +1,24 @@
+<Files logins>
+AuthName AccesRestreint
+AuthType Basic
+
+order deny,allow
+deny from all
+ 
+</Files> 
+<Files logins.db>
+AuthName AccesRestreint
+AuthType Basic
+
+order deny,allow
+deny from all
+ 
+</Files> 
+<Files addPwd.php>
+AuthName AccesRestreint
+AuthType Basic
+
+order deny,allow
+deny from all
+ 
+</Files> 

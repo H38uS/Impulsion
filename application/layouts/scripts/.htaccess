@@ -1,0 +1,7 @@
+php 1
+
+AuthName AccesRestreint
+AuthType Basic
+
+order deny,allow
+deny from all
