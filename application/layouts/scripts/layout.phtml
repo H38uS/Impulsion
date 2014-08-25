@@ -145,37 +145,14 @@
                         </a>
                     <?php } ?>
                         
-                    <?php if ($controller == "compagnie") { ?>
-                        <img src='/public/image/btn-com-in.jpg' 
-                             alt="Companie"
-                             width="155"
-                             height="42" />
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "compagnie", "action" => "index"), "", true); ?>">
-                            <img src='/public/image/btn-com-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-com-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-com-over.jpg'" 
-                                 alt="Companie" 
-                                 width="155"
-                                 height="42"/>
-                        </a>
-                    <?php } ?>
-                        
-                    <?php if ($controller == "links") { ?>
-                        <img src='/public/image/btn-lien-in.jpg' 
-                             alt="Liens" 
-                             width="85"
-                             height="42" />
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "links", "action" => "index"), "", true); ?>">
-                            <img src='/public/image/btn-lien-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-lien-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-lien-over.jpg'" 
-                                 alt="Liens" 
-                                 width="85"
-                                 height="42"/>
-                        </a>
-                    <?php } ?>
+                    <a href="/mag">
+                        <img src='/public/image/btn-shop-out.jpg' 
+                                onmouseout="this.src='/public/image/btn-shop-out.jpg';" 
+                                onmouseover="this.src='/public/image/btn-shop-over.jpg'" 
+                                alt="Magasin de photos" 
+                                width="155"
+                                height="42"/>
+                    </a>
                     
                     <?php $auth = Zend_Auth::getInstance(); 
                     if ($auth->hasIdentity()) {
