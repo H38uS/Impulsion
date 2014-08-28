@@ -46,20 +46,21 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
                         . date("j", strtotime($d))
                         . " "
                         . $this->toFrMonth($d);
+                                
+                $deb = $actualite['heureDebut'];
+                $deb = date("G", strtotime($deb))
+                        . "h"
+                        . date("i", strtotime($deb));
                 
                 $fin = $actualite['heureFin'];
                 if ($fin !== "" && $fin !== null) {
                     $fin = date("G", strtotime($fin))
                             . "h"
                             . date("i", strtotime($fin));
-                    $actualites[$i]['date'] .= " de " . $fin;
+                    $actualites[$i]['date'] .= " de " . $deb . " à " . $fin;
+                } else {
+                    $actualites[$i]['date'] .= " à " . $deb;
                 }
-                
-                $deb = $actualite['heureDebut'];
-                $deb = date("G", strtotime($deb))
-                        . "h"
-                        . date("i", strtotime($deb));
-                $actualites[$i]['date'] .= " à " . $deb;
 
                 $i++;
             }
