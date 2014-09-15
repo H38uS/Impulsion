@@ -1,6 +1,8 @@
 <h3>&nbsp;&nbsp;Agenda&nbsp;&nbsp;</h3>
 
 <?php foreach ($this->actualites as $actualite) { ?>
-<span class="bold"><?php echo $actualite['date']; ?></span><br />
-<?php echo $actualite['description']; ?><br />
+<div class="actualite">
+    <span class="bold"><?php echo $actualite['date']; ?></span><br />
+    <?php echo $actualite['description']; ?>
+</div>
 <?php } ?>

@@ -3,15 +3,26 @@
 class Default_Model_Actualites extends Default_Model_AbstractBdd {
 
     const TABLE_NAME = "actualites";
-    
+
     private function toFrMonth($date) {
         $mois = array("", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
         return $mois[date("n", strtotime($date))];
     }
-    
+
     private function toFrDay($date) {
         $jour = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
         return $jour[date("w", strtotime($date))];
+    }
+
+    /**
+     *
+     * @param date $time L'heure de départ.
+     * @return string La date formatée.
+     */
+    private function formatTime($time) {
+        return date("G", strtotime($time))
+                . "h"
+                . date("i", strtotime($time));
     }
 
     /**
@@ -26,7 +37,7 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
      */
     public function getActualites() {
 
-     
+
         // connexion
         $connexion = $this->connect();
 
@@ -46,21 +57,26 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
                         . date("j", strtotime($d))
                         . " "
                         . $this->toFrMonth($d);
-                                
+
                 $deb = $actualite['heureDebut'];
-                $deb = date("G", strtotime($deb))
-                        . "h"
-                        . date("i", strtotime($deb));
-                
                 $fin = $actualite['heureFin'];
-                if ($fin !== "" && $fin !== null) {
-                    $fin = date("G", strtotime($fin))
-                            . "h"
-                            . date("i", strtotime($fin));
-                    $actualites[$i]['date'] .= " de " . $deb . " à " . $fin;
-                } else {
-                    $actualites[$i]['date'] .= " à " . $deb;
+
+                // Uniquement l'heure de fin est rempli
+                if (($fin !== "" && $fin !== null) && ($deb === "" || $deb === null)) {
+                    $actualites[$i]['date'] .= " à " . $this->formatTime(fin);
                 }
+
+                // Uniquement l'heure de début est rempli
+                if (($fin === "" || $fin === null) && ($deb !== "" && $deb !== null)) {
+                    $actualites[$i]['date'] .= " à " . $this->formatTime($deb);
+                }
+
+                // Les deux heures sont remplies
+                if (($fin !== "" && $fin !== null) && ($deb !== "" && $deb !== null)) {
+                    $actualites[$i]['date'] .= " de " . $this->formatTime($deb) . " à " . $this->formatTime($fin);
+                }
+                
+                // Rien à faire lorsque les deux heures sont vides
 
                 $i++;
             }
