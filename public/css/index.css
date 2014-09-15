@@ -6,7 +6,7 @@
     top:398px;
     left:141px; 
     width:425px; 
-    height: 380px;
+    height: 390px;
     font-size: 145%;
     text-align: center;
 }
@@ -16,5 +16,5 @@ h3 {
 }
 
 .actualite {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
