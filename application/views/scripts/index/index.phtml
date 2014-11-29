@@ -1,8 +1,14 @@
-<h3>&nbsp;&nbsp;Agenda&nbsp;&nbsp;</h3>
+<h3>
+    <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true); ?>">
+        &nbsp;Agenda&nbsp;
+    </a>
+</h3>
 
 <?php foreach ($this->actualites as $actualite) { ?>
-<div class="actualite">
-    <span class="bold"><?php echo $actualite['date']; ?></span><br />
-    <?php echo $actualite['description']; ?>
-</div>
+    <div class="actualite">
+        <span class="bold"><?php echo $actualite['date']; ?></span><br />
+        <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true) . '#' . $actualite['id']; ?>">
+            <?php echo $actualite['description']; ?>
+        </a>
+    </div>
 <?php } ?>

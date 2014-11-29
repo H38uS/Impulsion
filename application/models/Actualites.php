@@ -50,7 +50,9 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
             $actualites = array();
             while ($actualite = mysql_fetch_assoc($result)) {
 
+                $actualites[$i]['id'] = $actualite['id'];
                 $actualites[$i]['description'] = $actualite['description'];
+                $actualites[$i]['longDescription'] = $actualite['longDescription'];
                 $d = $actualite['date'];
                 $actualites[$i]['date'] = $this->toFrDay($d)
                         . " "

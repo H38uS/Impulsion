@@ -13,8 +13,11 @@
 
 h3 {
     text-decoration: underline;
+    color: 	#2989d8;
 }
 
 .actualite {
     margin-bottom: 10px;
+    line-height: 1.4;
+    font-size: 90%;
 }

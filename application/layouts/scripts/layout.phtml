@@ -21,9 +21,14 @@
         <?php if ($controller == "index") { ?>	
                     <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/index.css" />
         <?php } ?>
+        <?php if ($controller == "liens" || $controller == "cours" || $controller == "agenda") { ?>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/body.css" />	
+        <?php } ?>
+        <?php if ($controller == "agenda") { ?>
+            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/agenda.css" />
+        <?php } ?>
         <?php if ($controller == "liens") { ?>
             <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/contact.js" ></script>	
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/body.css" />	
             <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/contact.css" />
         <?php } ?>
         <?php if ($controller == "livreor") { ?>
@@ -31,7 +36,6 @@
             <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/livreor.js" ></script>          
         <?php } ?>            
         <?php if ($controller == "cours") { ?>  
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/body.css" />
             <?php if ($action == "index") { ?>
             <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/coursIndex.css" />
             <?php } ?>           

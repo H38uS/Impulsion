@@ -1,0 +1,25 @@
+<h2>Agenda à venir...</h2>
+<?php foreach ($this->actualites as $actualite) { ?>
+    <h3 id="<?php echo $actualite['id']; ?>">
+        <?php
+        // On affiche uniquement la première ligne
+        $chaine = stristr($actualite['description'], "<br/>", true);
+        if ($chaine == "") {
+            $chaine = $actualite['description'];
+        }
+        echo $chaine;
+        ?>
+    </h3>
+    <div id="" >
+    <?php echo $actualite['date']; ?>.
+    </div>
+    <div>
+    <?php
+    $toBeDisplayed = $actualite['longDescription'];
+    if ($toBeDisplayed == "") {
+        $toBeDisplayed = $actualite['description'];
+    }
+    echo $toBeDisplayed;
+    ?>
+    </div>
+    <?php } ?>
