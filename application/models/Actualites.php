@@ -52,7 +52,7 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
 
                 $actualites[$i]['id'] = $actualite['id'];
                 $actualites[$i]['description'] = $actualite['description'];
-                $actualites[$i]['longDescription'] = $actualite['longDescription'];
+                $actualites[$i]['titre'] = $actualite['titre'];
                 $d = $actualite['date'];
                 $actualites[$i]['date'] = $this->toFrDay($d)
                         . " "

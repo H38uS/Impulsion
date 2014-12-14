@@ -14,7 +14,7 @@ foreach ($this->actualites as $actualite) {
     <div class="actualite">
         <span class="bold"><?php echo $actualite['date']; ?></span><br />
         <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true) . '#' . $actualite['id']; ?>">
-    <?php echo $actualite['description']; ?>
+    <?php echo $actualite['titre']; ?>
         </a>
     </div>
 <?php } ?>

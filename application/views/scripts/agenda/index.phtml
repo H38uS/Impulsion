@@ -1,11 +1,11 @@
-<h2>Agenda à venir...</h2>
+<h2>Agenda à venir et passé...</h2>
 <?php foreach ($this->actualites as $actualite) { ?>
     <h3 id="<?php echo $actualite['id']; ?>">
         <?php
         // On affiche uniquement la première ligne
-        $chaine = stristr($actualite['description'], "<br/>", true);
+        $chaine = stristr($actualite['titre'], "<br/>", true);
         if ($chaine == "") {
-            $chaine = $actualite['description'];
+            $chaine = $actualite['titre'];
         }
         echo $chaine;
         ?>
@@ -15,9 +15,9 @@
     </div>
     <div>
     <?php
-    $toBeDisplayed = $actualite['longDescription'];
+    $toBeDisplayed = $actualite['description'];
     if ($toBeDisplayed == "") {
-        $toBeDisplayed = $actualite['description'];
+        $toBeDisplayed = $actualite['titre'];
     }
     echo $toBeDisplayed;
     ?>
