@@ -118,6 +118,8 @@ class BddController extends Zend_Controller_Action {
         $query = stripslashes($query); // TODO à voir si obligatoire...
 
         // On exécute la requête, quelque soit le type
+        mysql_query("SET SESSION sql_mode = 'NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES'");
+        echo "<query>" . $query . "</query>";
         $ret = mysql_query($query, $this->_connexion);
         if (!$ret) {
             // Une erreur s'est produite
