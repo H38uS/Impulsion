@@ -63,23 +63,30 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
                 $deb = $actualite['heureDebut'];
                 $fin = $actualite['heureFin'];
 
+                $actualites[$i]['longdate'] = $actualites[$i]['date'] 
+                        . " " 
+                        . date("Y", strtotime($d));
+
                 // Uniquement l'heure de fin est rempli
                 if (($fin !== "" && $fin !== null) && ($deb === "" || $deb === null)) {
                     $actualites[$i]['date'] .= " à " . $this->formatTime(fin);
+                    $actualites[$i]['longdate'] .= " à " . $this->formatTime(fin);
                 }
 
                 // Uniquement l'heure de début est rempli
                 if (($fin === "" || $fin === null) && ($deb !== "" && $deb !== null)) {
                     $actualites[$i]['date'] .= " à " . $this->formatTime($deb);
+                    $actualites[$i]['longdate'] .= " à " . $this->formatTime($deb);
                 }
 
                 // Les deux heures sont remplies
                 if (($fin !== "" && $fin !== null) && ($deb !== "" && $deb !== null)) {
                     $actualites[$i]['date'] .= " de " . $this->formatTime($deb) . " à " . $this->formatTime($fin);
+                    $actualites[$i]['longdate'] .= " de " . $this->formatTime($deb) . " à " . $this->formatTime($fin);
                 }
-                
-                // Rien à faire lorsque les deux heures sont vides
 
+                // Rien à faire lorsque les deux heures sont vides
+                                
                 $i++;
             }
             // deco
