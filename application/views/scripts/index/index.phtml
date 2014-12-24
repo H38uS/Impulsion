@@ -7,9 +7,6 @@
 <?php $i = 0; ?>
 <?php
 foreach ($this->actualites as $actualite) {
-    if ($i === 3) // Maximum 3 actualités dans la vue de l'acceuil
-        break;
-    $i++;
     ?>
     <div class="actualite">
         <span class="bold"><?php echo $actualite['date']; ?></span><br />

@@ -15,7 +15,7 @@ class AgendaController extends Zend_Controller_Action {
      */
     public function indexAction() {
         $model = new Default_Model_Actualites();
-        $this->view->actualites = $model->getActualites();
+        $this->view->actualites = $model->getAllActualites();
     }
 
 }
