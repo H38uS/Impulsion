@@ -3,11 +3,7 @@
     <h3 id="<?php echo $actualite['id']; ?>">
         <?php
         // On affiche uniquement la première ligne
-        $chaine = stristr($actualite['titre'], "<br/>", true);
-        if ($chaine == "") {
-            $chaine = $actualite['titre'];
-        }
-        echo $chaine;
+        echo $actualite['titre'];
         ?>
     </h3>
     <div id="" >
