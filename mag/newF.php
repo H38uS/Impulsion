@@ -63,7 +63,7 @@ function validateEmail(sEmail) {
       <tr>
         <td align=center colspan=3><hr width=100% size=1 color=#FFFFFF><a href="index.php"><img src='images/acc_OUT.png' onmouseover="this.src='images/acc_OVER.png';" onmouseout="this.src='images/acc_OUT.png';"></a></td>
       </tr>
-	  </table
+	  </table>
     </form>
 <script language="javascript">
 var ok = false;

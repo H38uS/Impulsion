@@ -49,7 +49,7 @@ function R1600()
 	  	if ($msg == 1)
 			echo "<tr><td align=center colspan=3>Pas de session active!</td></tr>"; 
 	  ?>
-	  </table
+	  </table>
     </form>
     </center>
   </body>
