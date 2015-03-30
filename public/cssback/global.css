@@ -12,7 +12,7 @@ body
     font-family: arial,helvetica,"bitstream vera sans",sans-serif;
     color: #000000;
     background-color: #ffffff; 
-    background: url("/public/image/acceuil.jpg");
+    background: url("/Impulsion/public/image/acceuil.jpg");
     background-attachment:fixed;
 }
 

@@ -14,7 +14,7 @@ div#body
 
 .bandes 
 {
-    background-image: url("/public/image/bandes.png");
+    background-image: url("/Impulsion/public/image/bandes.png");
     width: 14px;
     height:100%;
 }
