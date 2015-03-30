@@ -49,33 +49,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
     protected function _initPublicPath() {
         // We define the constant only if it doesn't exist yet...
         if (!defined('ROOT_TO_PUBLIC')) {
-
-            // building the real public path
-            $fold = explode("\\", APPLICATION_PATH);
-            $public_path = "";
-            for ($i = 0; $i < count($fold) - 1; $i++) {
-                $public_path .= $fold[$i] . "/";
-            }
-            $public_path .= "public";
-
-            // Web server root directory		 
-            $doc_root = getenv("DOCUMENT_ROOT");
-
-            $miss_path = "";
-            if ($doc_root != $public_path) {
-                $fold_root = explode("/", $doc_root);
-                $fold_public = explode("/", $public_path);
-                for ($j = 0; $j < count($fold_public); $j++) {
-                    if ($j < count($fold_root) && $fold_public[$j] != $fold_root[$j]) {
-                        // manque seulement le public
-                        $miss_path .= "/public";
-                    }
-                    if ($j >= count($fold_root)) {
-                        $miss_path .= "/" . $fold_public[$j];
-                    }
-                }
-            }
-            define('ROOT_TO_PUBLIC', $miss_path);
+        	$aConfig = $this->getOptions();
+            define('ROOT_TO_PUBLIC', $aConfig["root2public"]);
         }
     }
 
