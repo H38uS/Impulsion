@@ -68,15 +68,15 @@
             <div id="menu_section">
                 <div id="menu">
                     <?php if ($controller == "index") { ?>
-                        <img src='/public/image/btn-acc-in.jpg' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-in.jpg' 
                              alt="Acceuil"
                              width="104"
                              height="42" />
                     <?php } else { ?> 
                         <a href="<?php echo $this->url(array('controller' => "index", "action" => "index"), "", true); ?>">
-                            <img src='/public/image/btn-acc-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-acc-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-acc-over.jpg'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-out.jpg' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-out.jpg';" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-over.jpg'" 
                                  alt="Acceuil"
                                  width="104"
                                  height="42" />
@@ -85,16 +85,16 @@
 
                     <?php if ($controller == "cours") { ?>
                         <img id="menuCours"
-                            src='/public/image/btn-cours-in.jpg' 
+                            src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-in.jpg' 
                             alt="Les cours"
                             width="132"
                             height="42" />
                     <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "cours", "action" => "index"), "", true); ?>">
                             <img id="menuCours"
-                                 src='/public/image/btn-cours-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-cours-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-cours-over.jpg'" 
+                                 src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-out.jpg' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-out.jpg';" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-over.jpg'" 
                                  alt="Les cours"
                                  width="132"
                                  height="42" />
@@ -102,15 +102,15 @@
                     <?php } ?>
 
                     <?php if ($controller == "liens") { ?>
-                        <img src='/public/image/btn-con-in.jpg' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-in.jpg' 
                              alt="Contacts" 
                              width="121"
                              height="42"/>
                     <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "liens", "action" => "index"), "", true); ?>">
-                            <img src='/public/image/btn-con-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-con-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-con-over.jpg'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-out.jpg' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-out.jpg';" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-over.jpg'" 
                                  alt="Contacts"
                                  width="121"
                                  height="42" />
@@ -118,15 +118,15 @@
                     <?php } ?>
 
                     <?php if ($controller == "galerie") { ?>
-                        <img src='/public/image/btn-gal-in.jpg' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-in.jpg' 
                              alt="Galerie Photos" 
                              width="196"
                              height="42"/>
                     <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "galerie", "action" => "index"), "", true); ?>">
-                            <img src='/public/image/btn-gal-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-gal-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-gal-over.jpg'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-out.jpg' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-out.jpg';" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-over.jpg'" 
                                  alt="Galerie Photos"
                                  width="196"
                                  height="42" />
@@ -134,15 +134,15 @@
                     <?php } ?>
 
                     <?php if ($controller == "livreor") { ?>
-                        <img src='/public/image/btn-lor-in.jpg' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-in.jpg' 
                              alt="Livre d'or"
                              width="129"
                              height="42" />
                     <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "livreor", "action" => "index"), "", true); ?>">
-                            <img src='/public/image/btn-lor-out.jpg' 
-                                 onmouseout="this.src='/public/image/btn-lor-out.jpg';" 
-                                 onmouseover="this.src='/public/image/btn-lor-over.jpg'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-out.jpg' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-out.jpg';" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-over.jpg'" 
                                  alt="Livre d'or" 
                                  width="129"
                                  height="42"/>
@@ -150,9 +150,9 @@
                     <?php } ?>
                         
                     <a href="/mag">
-                        <img src='/public/image/btn-shop-out.jpg' 
-                                onmouseout="this.src='/public/image/btn-shop-out.jpg';" 
-                                onmouseover="this.src='/public/image/btn-shop-over.jpg'" 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-shop-out.jpg' 
+                                onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-shop-out.jpg';" 
+                                onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-shop-over.jpg'" 
                                 alt="Magasin de photos" 
                                 width="155"
                                 height="42"/>
@@ -169,60 +169,60 @@
                 </div>       
                 <div id="sousMenuCours">
                     <?php if ($controller == "cours" && $action == "plan") { ?>
-                        <img src='/public/image/btn-plan-in.png'  
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-in.png'  
                              alt="Plan des cours"
                              width="76"
                              height="43" />  
                      <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "cours", "action" => "plan"), "", true); ?>">
-                            <img src='/public/image/btn-plan-out.png' 
-                                 onmouseout="this.src='/public/image/btn-plan-out.png'" 
-                                 onmouseover="this.src='/public/image/btn-plan-over.png'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-out.png' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-out.png'" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-over.png'" 
                                  alt="Plan des cours"
                                  width="76"
                                  height="43" />
                         </a>
                     <?php } ?>
                     <?php if ($controller == "cours" && $action == "planning") { ?>
-                        <img src='/public/image/btn-planing-in.png' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-in.png' 
                              alt="Planning des cours"
                              width="116"
                              height="43" />
                     <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "cours", "action" => "planning"), "", true); ?>">
-                            <img src='/public/image/btn-planing-out.png' 
-                                 onmouseout="this.src='/public/image/btn-planing-out.png'" 
-                                 onmouseover="this.src='/public/image/btn-planing-over.png'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-out.png' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-out.png'" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-over.png'" 
                                  alt="Planning des cours"
                                  width="116"
                                  height="43" />
                         </a>
                     <?php } ?>
                     <?php if ($controller == "cours" && $action == "tarif") { ?>
-                        <img src='/public/image/btn-tarifs-in.png' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-in.png' 
                              alt="Les tarifs"
                              width="78"
                              height="43" />    
                      <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "cours", "action" => "tarif"), "", true); ?>">
-                            <img src='/public/image/btn-tarifs-out.png' 
-                                 onmouseout="this.src='/public/image/btn-tarifs-out.png'" 
-                                 onmouseover="this.src='/public/image/btn-tarifs-over.png'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-out.png' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-out.png'" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-over.png'" 
                                  alt="Les tarifs"
                                  width="78"
                                  height="43" />
                         </a>
                     <?php } ?>
                     <?php if ($controller == "cours" && $action == "dossier") { ?>
-                        <img src='/public/image/btn-inscription-in.png' 
+                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-in.png' 
                              alt="Dossiers d'inscription"
                              width="154"
                              height="43" />
                      <?php } else { ?>
                         <a href="<?php echo $this->url(array('controller' => "cours", "action" => "dossier"), "", true); ?>">
-                            <img src='/public/image/btn-inscription-out.png' 
-                                 onmouseout="this.src='/public/image/btn-inscription-out.png'" 
-                                 onmouseover="this.src='/public/image/btn-inscription-over.png'" 
+                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-out.png' 
+                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-out.png'" 
+                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-over.png'" 
                                  alt="Dossiers d'inscription"
                                  width="154"
                                  height="43" />

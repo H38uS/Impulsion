@@ -12,7 +12,7 @@
                 à <span class="important"><?php echo $message['Heure']; ?></span>
                 <span class="suppr">
             		<a href="<?php echo $this->url(array('controller' => 'livreor', 'action' => 'suppression', 'id' => $message['Keyfield']));?>">
-            			<img src="/public/image/delete.png" height="12px" title="Supprimer le message" alt="supprimer"/>
+            			<img src="<?php echo ROOT_TO_PUBLIC; ?>/image/delete.png" height="12px" title="Supprimer le message" alt="supprimer"/>
             		</a>
             	</span>
             </div>

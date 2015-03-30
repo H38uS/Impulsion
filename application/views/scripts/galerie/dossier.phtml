@@ -3,11 +3,11 @@
 ?>
     <?php for ($i=1; $i<6; $i++) { ?>
     <div id="dossierup<?php echo $i; ?>">
-        <img src='/public/image/dossier-0<?php echo $i; ?>-up.png' alt="" />
+        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/dossier-0<?php echo $i; ?>-up.png' alt="" />
     </div>
     <div id="dossier<?php echo $i; ?>">
         <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'folder' => $reps[$i-1]), null, true); ?>">
-            <img src='/public/image/dossier-0<?php echo $i; ?>.png'  alt="" />
+            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/dossier-0<?php echo $i; ?>.png'  alt="" />
             <?php if ($this->currentfolder === $reps[$i-1]) {
                 echo '<span class="selected">' . $reps[$i-1] . '</span>';
             } else {
@@ -38,7 +38,7 @@
             <td>
                 <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'subfolder' => $reps[$i])); ?>"
                 title="<?php echo $reps[$i]; ?>">
-                    <img src="/public/image/icon-photo.png" width="97" height="93" alt="répertoire" />
+                    <img src="<?php echo ROOT_TO_PUBLIC; ?>/image/icon-photo.png" width="97" height="93" alt="répertoire" />
                 </a>
             </td> 
         <?php }
