@@ -14,7 +14,8 @@ class CoursController extends Zend_Controller_Action
     }
 
     public function planningAction() {
-        
+    	$model = new Default_Model_Groupes();
+    	$this->view->groupes = $model->getPlanningArray();
     }
 
     public function tarifAction() {

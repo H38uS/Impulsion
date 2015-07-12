@@ -13,17 +13,6 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
         $jour = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
         return $jour[date("w", strtotime($date))];
     }
-
-    /**
-     *
-     * @param date $time L'heure de départ.
-     * @return string La date formatée.
-     */
-    private function formatTime($time) {
-        return date("G", strtotime($time))
-                . "h"
-                . date("i", strtotime($time));
-    }
 	
 	/**
      *

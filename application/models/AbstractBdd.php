@@ -14,6 +14,17 @@ abstract class Default_Model_AbstractBdd {
         $options = $bootstrap->getOptions();
         $this->_conf = $options['db'];
     }
+
+    /**
+     *
+     * @param date $time L'heure de départ.
+     * @return string La date formatée.
+     */
+    protected function formatTime($time) {
+        return date("G", strtotime($time))
+                . "h"
+                . date("i", strtotime($time));
+    }
     
     /**
      * Connection à la bd si pas déjà fait.
