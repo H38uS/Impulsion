@@ -1,7 +1,15 @@
 <?php
 include("connection.php");
 
-$tarif = 1; /// 1 euro
+//$tarif = 1; /// 1 euro
+function CalcTarif($nb)
+	{
+	$montant = $nb * 3;
+	if ($nb <= 10) $montant = $nb * 3; /// de 0 a 10 photos -> 3�/unite
+	if ($nb >= 11 && $nb <= 20) $montant = $nb * 2.5; /// de 11 a 20 photos -> 2.5�/unite
+	if ($nb >= 21) $montant = $nb * 2; /// de 11 a 20 photos -> 2.5�/unite
+	return $montant;
+	}
 
 if (isset($_POST['modul'])) $modul = $_POST['modul']; else $modul = -1;
 
@@ -10,6 +18,8 @@ if ($modul == 0) /// listage dossier
 		if (isset($_POST['rep'])) $rep = $_POST['rep']; else $rep = "";
 		if ($rep != "")
 			{
+				echo "<div id=loading style=\"POSITION: absolute; top:2; left:2; width:48; height:48; z-order:2;\"><img src='images/loading.gif'></div>";
+				echo"<script>$( \"#loading\" ).hide();</script>";
 				echo "<center><span class='BIG'>$rep</span></center><hr width=100% size=2>";
 				echo "<table border=0 cellpadding=0 cellspacing=0 width=100%>";
 				$Trep=opendir($rep);
@@ -24,11 +34,12 @@ if ($modul == 0) /// listage dossier
 				   }
 				 }
 				closedir($Trep);	   
-				sort($tableau);
+				rsort($tableau);
 				for ($i = 0; $i < $nbDossier; $i++)
 					{
-						$t = $tableau[$i];
-						echo "<tr class='BIG'><td align=center><a href=\"javascript:listDossier('photos/$t');\" >".str_replace("_"," ",$t)."</a></td></tr>\n";
+						$t = utf8_encode($tableau[$i]);
+						
+						echo "<tr class='BIG'><td align=right>".substr($t,0,4)."</td><td width=20>&nbsp;</td><td align=left><a href=javascript:listDossier(\"photos/".str_replace("'","\\'",$t)."\"); >".substr(str_replace("_"," ",$t),4,strlen($t)-4)."</a></td></tr>\n";
 					}
 			}
 	}
@@ -39,10 +50,11 @@ if ($modul == 1) /// listage photo du dossier
 		if (isset($_POST['rep'])) $rep = $_POST['rep']; else $rep = "";
 		if ($rep != "")
 			{
+				//$rep = $rep;
 				$tmp = str_replace("photos/", "",$rep);
-				echo "<div style=\"POSITION: absolute; top:2; left:2; width:200; height:20; z-order:2;\"><a href='javascript:page_photo();'>Retour au Dossier photos</a></div><center><span class='BIG'>$tmp</span></center><hr width=100% size=2></center>";
+				echo "<div style=\"POSITION: absolute; top:2; left:2; width:200; height:20; z-order:2;\"><a href='javascript:page_photo();'>Retour au Dossier photos</a></div><center><span class='BIG'>".str_replace("_"," ",$tmp)."</span></center><hr width=100% size=2></center>";
 				echo "<table border=0 cellpadding=0 cellspacing=0 width=100%>";
-				$Trep=opendir($rep);
+				$Trep=opendir(utf8_decode($rep));
 				$nbfile=0;
 				while ($file = readdir($Trep))
 				 {
@@ -74,41 +86,50 @@ if ($modul == 1) /// listage photo du dossier
 
 					if ($ext == "jpg")
 						{
-						$photo=$rep."/".$file;
+						$photo=utf8_decode($rep."/".$file);
 						list($width, $height, $type, $attr) = getimagesize("$photo");  
 
 						if (!file_exists($vignette))
 							{
-							$img_new = imagecreatefromjpeg("$rep/$file");
+							$img_new = imagecreatefromjpeg("$photo");
 							$x = 150;
 							$y = round(($x * $height) / $width);
 							$img_mini = imagecreatetruecolor ($x, $y);
 							imagecopyresampled ($img_mini,$img_new,0,0,0,0,$x,$y,$width,$height);
-							imagejpeg($img_mini,$vignette,45); 
+							imagejpeg($img_mini,utf8_decode($vignette),45); 
 							imagedestroy($img_mini);
 							imagedestroy($img_new); 
 							}
 							
 						/// reduit encore la photo puis ajoute un logo ////
-						if ($width > 500)
+						/*
+						if ($width > 440 || $height > 440)
 							{
-							$img_new = imagecreatefromjpeg("$rep/$file");
+							$img_new = imagecreatefromjpeg("$photo");
 							$logo = imagecreatefrompng("images/logo.png");
 							//$size = getimagesize("$rep/$file");
-							$x = 500;
-							$y = round(($x * $height) / $width);
+							if ($width > $height)
+								{
+								$x = 440;
+								$y = round(($x * $height) / $width);
+								}
+							else
+								{
+								$y = 440;
+								$x = round(($y * $width) / $height);
+								}
 							$img_mini = imagecreatetruecolor ($x, $y);
 							imagecopyresampled ($img_mini,$img_new,0,0,0,0,$x,$y,$width,$height);
 							imagecopyresampled ($img_mini,$logo,0,0,0,0,$x,$y,$widthL,$heightL);
-							imagejpeg($img_mini,"$rep/$file",55); 
+							imagejpeg($img_mini,"$photo",55); 
 							imagedestroy($img_mini);
 							imagedestroy($img_new); 
 							imagedestroy($logo); 
-							}
+							}*/
 						
 							
 						if (!$i) echo "<tr>";
-						echo "<td align=center><img ID='$nom' border=3 src='$vignette'><br><img src='images/p.png' ID='p$nom'>&nbsp;<img src='images/m.png' ID='m$nom'></td>";$i++;
+						echo "<td align=center><img ID='$nom' border=3 src='".utf8_encode($vignette)."'><br><img src='images/p.png' ID='p$nom'>&nbsp;<img src='images/m.png' ID='m$nom'></td>";$i++;
 						if ($i == 5) {echo "</tr>"; $i = 0;}
 						
 						?><script>
@@ -320,6 +341,7 @@ if ($modul == 3) /// maj affichage panier
 				if ($Lrep != $dossier)
 					{
 						$tmp = str_replace("photos/", "",$Lrep);
+						if (strlen($tmp)>20) $tmp = substr($tmp,0,20);
 						echo "<tr class='lib'><td colspan=3 align=center >$tmp</td></tr>"; 
 						$dossier = $Lrep;
 					}
@@ -351,7 +373,8 @@ $("#pv<?php echo $i;?>").click(function()
 echo "</tr>";
 	$i++;
 				}
-			$combien = $combien * $tarif;
+			//$combien = $combien * $tarif;
+			$combien = CalcTarif($combien);
 			echo "<tr class='lib'><td colspan=3 align=right>$combien €</td></tr>";
 			
 			echo "</table>";
@@ -420,7 +443,8 @@ $("#Vpv<?php echo $i;?>").click(function()
 echo "</tr>";
 	$i++;
 				}
-			$combien = $combien * $tarif;
+			//$combien = $combien * $tarif;
+			$combien = CalcTarif($combien);
 			echo "<tr class='lib'><td colspan=3 align=right>$combien €</td></tr>";
 			echo "</table>";
 			echo "<img id='valide' <img type=image src='images/valide_OUT.png' onmouseover=\"this.src='images/valide_OVER.png';\" onmouseout=\"this.src='images/valide_OUT.png';\">";
@@ -454,7 +478,7 @@ if ($modul == 7) /// valide panier
 			$requete_ajout = "UPDATE panier SET etat='1',lastdate='".time()."' WHERE ID='$ID_panier'";
 			mysql_query($requete_ajout) or die('Erreur SQL !'.$requete_ajout.'<br>'.mysql_error()); 
 			$_SESSION['ID_panier'] = 0;
-			echo "Commande validée<br>Merci d'établir un chèque à l'ordre de XXXXXXXXXXXXXX d'un montant de $prix €.<br>Et d'inscrire au dos le N° du panier ($ID_panier)";
+			echo "Commande validée<br>Merci d'établir un chèque à l'ordre de l'association IMPULSION d'un montant de $prix €.<br>Et d'inscrire au dos le N° du panier ($ID_panier)";
 			}
 		else echo "modul 7 Vide !";
 	}
@@ -517,7 +541,8 @@ if ($modul == 8) /// mon compte
 											}
 										echo "<tr class='inf'><td colspan=3 align=right>$Lfile</td><td align=center>x$Lq</td><td ></td></tr>";
 										}
-									$combien = $combien * $tarif;
+									//$combien = $combien * $tarif;
+									$combien = CalcTarif($combien);
 									echo "<tr class='lib'><td colspan=3></td><td align=center>";
 									if ($etat == 1) echo "<img id='p$ID' alt=\"Panier payé ?\" src='images/d.png'></td>"; /// payer ?
 									if ($etat == 2) echo "en cours (attente commande imprimeur)"; /// livré ?

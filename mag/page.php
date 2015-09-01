@@ -26,6 +26,7 @@ function R1600()
 }
 function listDossier(rep)
 {
+	$( '#loading' ).show();
 	var posting = $.post( "query.php", { modul: 1, rep: rep } );
 	posting.done(function( data ) {	$("#contenu").html(data);});
 }		
