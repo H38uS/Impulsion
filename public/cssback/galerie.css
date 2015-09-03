@@ -21,7 +21,7 @@ td
 
 .imagecontent {
     border : 1px solid black;
-    background: #F1F3FF url("/Impulsion/public/image/loading.gif") no-repeat center;
+    background: #F1F3FF url("/public/image/loading.gif") no-repeat center;
 }
 
 .imagecontent:hover {

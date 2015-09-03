@@ -1,5 +1,5 @@
 #container {
-    background: url("/Impulsion/public/image/fond-galerie.jpg"); /* override le fond d'écran */
+    background: url("/public/image/fond-galerie.jpg"); /* override le fond d'écran */
 }
 
 #body {
@@ -124,7 +124,7 @@
 
 #espacePhotos .imagecontent {
     border : 1px solid white;
-    background: #F1F3FF url("/Impulsion/public/image/loading.gif") no-repeat center;
+    background: #F1F3FF url("/public/image/loading.gif") no-repeat center;
 }
 
 #espacePhotos .imagecontent:hover {

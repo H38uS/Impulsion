@@ -30,7 +30,7 @@ a img {
     min-width:1280px;
     margin-left: -640px; /* moitié de width */
     margin-top: -400px; /* moitié de height */
-    background: url("/Impulsion/public/image/fond.jpg");
+    background: url("/public/image/fond.jpg");
 }
 
 #body {

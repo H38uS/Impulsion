@@ -1,5 +1,5 @@
 #container {
-    background: url("/Impulsion/public/image/fond-acceuil.jpg"); /* override le fond d'écran */
+    background: url("/public/image/fond-acceuil.jpg"); /* override le fond d'écran */
 }
 
 #body {
