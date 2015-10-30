@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Application bootstrap
+ * Application bootstrap.
  * 
  * @uses    Zend_Application_Bootstrap_Bootstrap
  * @package QuickStart
