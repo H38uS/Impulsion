@@ -4,10 +4,10 @@ include("connection.php");
 //$tarif = 1; /// 1 euro
 function CalcTarif($nb)
 	{
-	$montant = $nb * 3;
-	if ($nb <= 10) $montant = $nb * 3; /// de 0 a 10 photos -> 3€/unite
-	if ($nb >= 11 && $nb <= 20) $montant = $nb * 2.5; /// de 11 a 20 photos -> 2.5€/unite
-	if ($nb >= 21) $montant = $nb * 2; /// de 11 a 20 photos -> 2.5€/unite
+	$montant = $nb * 2;
+	if ($nb <= 10) $montant = $nb * 2; /// de 0 a 10 photos -> 2€/unite
+	if ($nb >= 11 && $nb <= 20) $montant = $nb * 1.5; /// de 11 a 20 photos -> 1.5€/unite
+	if ($nb >= 21) $montant = $nb * 1.2; /// de 11 a 20 photos -> 1.2€/unite
 	return $montant;
 	}
 
@@ -88,17 +88,29 @@ if ($modul == 1) /// listage photo du dossier
 						{
 						$photo=utf8_decode($rep."/".$file);
 						list($width, $height, $type, $attr) = getimagesize("$photo");  
+						
 
 						if (!file_exists($vignette))
 							{
 							$img_new = imagecreatefromjpeg("$photo");
-							$x = 150;
-							$y = round(($x * $height) / $width);
+							//$logo = imagecreatefrompng("images/logo.png");
+							if ($width > $height)
+								{
+									$x = 150;
+									$y = round(($x * $height) / $width);
+								}
+							else
+								{
+									$y = 150;
+									$x = round(($y * $width) / $height);
+								}
 							$img_mini = imagecreatetruecolor ($x, $y);
 							imagecopyresampled ($img_mini,$img_new,0,0,0,0,$x,$y,$width,$height);
+							//imagecopyresampled ($img_mini,$logo,0,0,0,0,$x,$y,$widthL,$heightL);
 							imagejpeg($img_mini,utf8_decode($vignette),45); 
 							imagedestroy($img_mini);
 							imagedestroy($img_new); 
+							//imagedestroy($logo); 
 							}
 							
 						/// reduit encore la photo puis ajoute un logo ////
@@ -131,6 +143,18 @@ if ($modul == 1) /// listage photo du dossier
 						if (!$i) echo "<tr>";
 						echo "<td align=center><img ID='$nom' border=3 src='".utf8_encode($vignette)."'><br><img src='images/p.png' ID='p$nom'>&nbsp;<img src='images/m.png' ID='m$nom'></td>";$i++;
 						if ($i == 5) {echo "</tr>"; $i = 0;}
+
+						if ($width > $height)
+							{
+								$height = (940 * $height) / $width;
+								$width = 940;
+							}
+						else
+							{
+								$width = (640 * $width) / $height;
+								$height = 640;
+							}
+						
 						
 						?><script>
 						$("#<?php echo $nom;?>").mouseover(function() {$("#<?php echo $nom;?>").fadeTo(500,1);});
@@ -156,7 +180,7 @@ if ($modul == 1) /// listage photo du dossier
 						$("#<?php echo $nom;?>").click(function() 
 							{
 							$("#<?php echo $nom;?>").stop().animate({opacity:1},0);
-							$("#bigtof").html("<br><center><img ID='bigtof2' src='<?php echo $photo;?>' border=3></center>");
+							$("#bigtof").html("<br><center><img ID='bigtof2' src='<?php echo $photo;?>' width=<?php echo $width;?> height=<?php echo $height;?> border=3></center>");
 							$("#bigtof").fadeTo(100,1);
 							$("#bigtof").show();});
 							</script><?php

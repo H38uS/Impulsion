@@ -39,7 +39,7 @@ function R1600()
         <td align=right>Pass</td><td width=10>:</td><td><input type=password size=20 maxlength=20 name=pass></td>
       </tr>
       <tr>
-        <td align=center colspan=4><hr width=100% size=1 color=#FFFFFF><a href="newF.php"><img src='images/creeruncompte_OUT.png' onmouseover="this.src='images/creeruncompte_OVER.png';" onmouseout="this.src='images/creeruncompte_OUT.png';"></a><hr width=100% size=1 color=#FFFFFF><img src='images/taro2015.png'></td>
+        <td align=center colspan=4><hr width=100% size=1 color=#FFFFFF><a href="newF.php"><img src='images/creeruncompte_OUT.png' onmouseover="this.src='images/creeruncompte_OVER.png';" onmouseout="this.src='images/creeruncompte_OUT.png';"></a><hr width=100% size=1 color=#FFFFFF><br><img src='images/taro2015c.png'></td>
       </tr>
 	  <?php
 	  	if ($msg == -2)
@@ -49,7 +49,7 @@ function R1600()
 	  	if ($msg == 1)
 			echo "<tr><td align=center colspan=3>Pas de session active!</td></tr>"; 
 	  ?>
-	  </table>
+	  </table
     </form>
     </center>
   </body>
