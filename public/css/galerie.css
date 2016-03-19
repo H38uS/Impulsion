@@ -14,7 +14,7 @@
     left:34px; 
     top:0; 
     width:105px; 
-    height:22px; 
+    height:22px;
 }
 #dossier1 {
     position: absolute;
@@ -22,6 +22,7 @@
     top:67px; 
     width:105px; 
     height:200px; 
+    text-align: center;
 }
 
 
@@ -38,6 +39,7 @@
     top:67px; 
     width:108px; 
     height:200px; 
+    text-align: center;
 }
 
 
@@ -54,6 +56,7 @@
     top:67px; 
     width:102px; 
     height:200px; 
+    text-align: center;
 }
 
 
@@ -70,6 +73,7 @@
     top:67px; 
     width:100px; 
     height:200px; 
+    text-align: center;
 }
 
 
@@ -86,6 +90,7 @@
     top:67px; 
     width:97px; 
     height:200px; 
+    text-align: center;
 }
 
 /* **** Placement des sous dossiers dossiers **** */
