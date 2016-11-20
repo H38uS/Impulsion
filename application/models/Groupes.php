@@ -6,41 +6,40 @@ class Default_Model_Groupes extends Default_Model_AbstractBdd {
     
     /**
      * 
-     * @param string $annees Les années de naissance
-     * @return string L'âge à afficher
+     * @param string $age L'âge à afficher
+     * @return string Les années de naissance
      */
-    private function getAge($annee) {
+    private function getAnnee($age) {
     	
     	$todayYear = date("Y");
+    	$offset = date("m") > 8 ? 0 : -1;
     	
     	// Cas trivial : une seule année de naissance.
-    	if (!strpos($annee, "-")) {
-    		return ($todayYear - $annee) . " ans";
+    	if (!strpos($age, "-") && !strpos($age, "+")) {
+    		return ($todayYear - $age) + $offset;
     	}
     	
-		// On ne termine pas par un "-", ie on a un interval.
+		// On ne termine pas par un "+", ie on a un interval.
 		// Il faut récupérer les deux années, on split.    	
-    	if (substr_compare ( $annee, "-", - 1, 1 ) !== 0) {
+    	if (substr_compare ( $age, "+", - 1, 1 ) !== 0) {
     		
     		$res = "";
-    		$ans = explode("-", $annee);
-    		foreach (array_reverse($ans) as $an) {
+    		$ages = explode("-", $age);
+    		foreach (array_reverse($ages) as $a) {
     			
-    			$an = $todayYear - trim($an);
-    			$res .= $an . " - ";
+    			$a = $todayYear - trim($a) + $offset;
+    			$res .= $a . " - ";
     			
     		}
 
     		// On supprime le dernier " - " et on retourne la chaine
-    		return substr($res, 0, strlen($res) - 3) . " ans";
+    		return substr($res, 0, strlen($res) - 3);
 		} 
 		
-		// Dernier cas - On termine par "-"
-		// On récupère l'année
-		$age = $todayYear - substr($annee, 0, 4	);
-		if ($age > 17)
-			return "Adultes";
-		return $age . " ans et plus";
+		// Dernier cas - On termine par "+"
+		// On récupère l'âge
+		$annee = $todayYear - substr($age, 0, -1) + $offset;
+		return $annee . " et moins";
     }
 	
 	/**
@@ -79,18 +78,20 @@ class Default_Model_Groupes extends Default_Model_AbstractBdd {
 					$lieu = "A définir";                	
                 }
                 $groupes[$i]['lieu'] = $lieu;
-                
-                
-                $annee = $groupe['annees_naissance'];
-                // L'année de naissance 
-                $groupes[$i]['annees_naissance'] = $annee;
-    			if (substr_compare ( $annee, "-", - 1, 1 ) === 0) {
-    				// Si on termine par "-", cela signifie "et moins"
-    				$groupes[$i]['annees_naissance'] = substr($annee, 0, 4) . " et moins";
-				}
 
                 // L'âge
-                $groupes[$i]['age'] = $this->getAge($annee);
+                $age = $groupe['age'];
+    			if (substr_compare ( $age, "+", - 1, 1 ) === 0) {
+    				// Si on termine par "+", cela signifie "et plus"
+    				$groupes[$i]['age'] = substr($age, 0, -1) . " ans et plus";
+				} else {
+				    $groupes[$i]['age'] = $age . " ans";
+				}
+				if ($age > 17)
+				    $groupes[$i]['age'] = "Adultes";
+                
+				// L'année de naissance
+                $groupes[$i]['annees_naissance'] = $this->getAnnee($age);
 
                 // Horaire
                 // Le début du cours...
