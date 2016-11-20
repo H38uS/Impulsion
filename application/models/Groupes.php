@@ -56,7 +56,7 @@ class Default_Model_Groupes extends Default_Model_AbstractBdd {
         $connexion = $this->connect();
 
         $query = "select * from " . self::TABLE_NAME . " " .
-				 "ORDER BY id;";
+				 "ORDER BY ordre;";
         $result = mysql_query($query, $connexion);
 
         if ($result) {
