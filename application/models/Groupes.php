@@ -99,7 +99,21 @@ class Default_Model_Groupes extends Default_Model_AbstractBdd {
                 // ... Et la fin !
                 $fin = $this->formatTime($groupe['fin']);
                 $groupes[$i]['horaire'] = $deb . " - " . $fin;
-                                
+                
+                $minutes = (strtotime($groupe['fin']) - strtotime($groupe['debut'])) / 60;
+                if ($minutes == 60) {
+                    $minutes = "1 heure";
+                }
+                else if ($minutes > 60) {
+                    $minutes = "1 heure " . ($minutes - 60);
+                }
+                else {
+                    $minutes = $minutes . " min";
+                }
+                
+                $groupes[$i]['duree'] = $minutes;
+                $groupes[$i]['tarif'] = $groupe['tarif'];
+
                 $i++;
             }
             
