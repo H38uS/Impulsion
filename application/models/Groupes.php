@@ -12,7 +12,7 @@ class Default_Model_Groupes extends Default_Model_AbstractBdd {
     private function getAnnee($age) {
     	
     	$todayYear = date("Y");
-    	$offset = date("m") > 8 ? 0 : -1;
+    	$offset = date("m") > 7 ? 0 : -1;
     	
     	// Cas trivial : une seule année de naissance.
     	if (!strpos($age, "-") && !strpos($age, "+")) {
