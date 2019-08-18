@@ -13,8 +13,8 @@ function load_photo() {
                 var paths = data.split("PATTERNACAUSEJSONDESARACE");
                 img.attr("src", paths[0]);  
                 lien.attr("href", paths[1]);
-                img.load(function() {
-                    img.fadeIn("slow");                    
+                img.on( 'load', function() {
+                    img.fadeIn("slow");
                 });    
             }, 350);       
         });

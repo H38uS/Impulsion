@@ -10,3 +10,12 @@ body {
     height: auto !important;
     min-height: 100%;
 }
+
+.maps
+{
+    border: 1px solid black;
+    width: 600px; height: 400px;
+    margin:15px auto;
+    margin-bottom: 40px;
+    color: black;
+}

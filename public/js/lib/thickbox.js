@@ -6,6 +6,8 @@
 */
       
 var tb_pathToImage = "/public/image/loadingAnimation.gif";
+DEFAULT_WIDTH = $( window ).width() * .6;
+DEFAULT_HEIGTH = $( window ).height() * .8;
 /*!!!!!!!!!!!!!!!!! edit below this line at your own risk !!!!!!!!!!!!!!!!!!!!!!!*/
 //on page load call tb_init
 $(document).ready(function(){   
@@ -184,8 +186,8 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
       
             var queryString = url.replace(/^[^\?]+\??/,'');
             var params = tb_parseQuery( queryString );
-            TB_WIDTH = (params['width']*1) + 30 || 630; //defaults to 630 if no paramaters were added to URL
-            TB_HEIGHT = (params['height']*1) + 40 || 440; //defaults to 440 if no paramaters were added to URL
+            TB_WIDTH = (params['width']*1) + 30 || DEFAULT_WIDTH; //defaults to DEFAULT_WIDTH if no paramaters were added to URL
+            TB_HEIGHT = (params['height']*1) + 40 || DEFAULT_HEIGTH; //defaults to DEFAULT_HEIGTH if no paramaters were added to URL
             ajaxContentW = TB_WIDTH - 30;
             ajaxContentH = TB_HEIGHT - 45;
       
@@ -226,7 +228,7 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
                 $("#TB_window").css({
                     display:"block"
                 }); 
-            }else if(url.indexOf('TB_iframe') != -1){
+            } else if(url.indexOf('TB_iframe') != -1){
                 tb_position();
                 if($.browser.safari){//safari needs help because it will not fire iframe onload
                     $("#TB_load").remove();
@@ -234,8 +236,8 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
                         display:"block"
                     });
                 }
-            }else{
-                $("#TB_ajaxContent").load(url += "&random=" + (new Date().getTime()),function(){//to do a post change this load method
+            } else{
+                $("#TB_ajaxContent").load(url,function(){//to do a post change this load method
                     tb_position();
                     $("#TB_load").remove();
                     tb_init("#TB_ajaxContent a.thickbox");
@@ -243,8 +245,7 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
                         display:"block"
                     });
                 });
-            }
-      
+            }      
         }
         if(!params['modal']){
             document.onkeyup = function(e){   
@@ -258,7 +259,6 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
                 }  
             };
         }
-    
     } catch(e) {
     //nothing here
     }
@@ -293,11 +293,9 @@ function tb_position() {
         marginLeft: '-' + parseInt((TB_WIDTH / 2),10) + 'px', 
         width: TB_WIDTH + 'px'
         });
-    if ( !(jQuery.browser.msie && jQuery.browser.version < 7)) { // take away IE6
-        $("#TB_window").css({
-            marginTop: '-' + parseInt((TB_HEIGHT / 2),10) + 'px'
-            });
-    }
+    $("#TB_window").css({
+        marginTop: '-' + parseInt((TB_HEIGHT / 2),10) + 'px'
+        });
 }
 function tb_parseQuery ( query ) {
     var Params = {};
