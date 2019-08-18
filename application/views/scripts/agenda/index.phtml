@@ -1,21 +1,18 @@
-<h2>Agenda à venir et passé...</h2>
+<div class="container">
+<h4 class="mt-2">Agenda passé et à venir</h4>
+<div class="row justify-content-center">
 <?php foreach ($this->actualites as $actualite) { ?>
-    <h3 id="<?php echo $actualite['id']; ?>">
-        <?php
-        // On affiche uniquement la première ligne
-        echo $actualite['titre'];
-        ?>
-    </h3>
-    <div id="" >
-    <?php echo $actualite['longdate']; ?>.
+	<div id="<?php echo $actualite['id']; ?>" class="card my-2" style="width: 330px; margin:auto">
+      <h5>
+        <div class="card-header">
+      		<?php echo $actualite['titre']; ?>
+        </div>
+      </h5>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted"><?php echo $actualite['longdate']; ?></h6>
+        <?php echo $actualite['description']; ?>
+      </div>
     </div>
-    <div>
-    <?php
-    $toBeDisplayed = $actualite['description'];
-    if ($toBeDisplayed == "") {
-        $toBeDisplayed = $actualite['titre'];
-    }
-    echo $toBeDisplayed;
-    ?>
-    </div>
-    <?php } ?>
+<?php } ?>
+</div>
+</div>

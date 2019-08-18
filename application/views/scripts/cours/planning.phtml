@@ -1,14 +1,16 @@
-﻿<div id="planningcontenu">
-<table>
-	<caption>Horaire des différents groupes 2018 - 2019</caption>
-	<tr>
-		<th>Âge</th>
-		<th>Année de naissance</th>
-		<th>Nom du groupe</th>
-		<th>Jour</th>
-		<th>Horaire</th>
-		<th>Lieu</th>
-	</tr>
+﻿<div id="planningcontenu" class="container">
+<table class="table table-striped">
+	<caption class="font-weight-bold text-center">Horaire des différents groupes 2018 - 2019</caption>
+	<thead>
+    	<tr>
+    		<th scope="col">Âge</th>
+    		<th scope="col">Année de naissance</th>
+    		<th scope="col">Nom du groupe</th>
+    		<th scope="col">Jour</th>
+    		<th scope="col">Horaire</th>
+    		<th scope="col">Lieu</th>
+    	</tr>
+	</thead>
 	<?php foreach ($this->groupes as $group) { ?>
 	<tr>
 		<td><?php echo $group["age"]; ?></td>			

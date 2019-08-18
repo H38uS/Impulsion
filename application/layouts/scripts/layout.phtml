@@ -7,233 +7,83 @@
               cours de danse eybens, cours de danse, cours de danse laura mosio, cours de danse impulsion,
               danse enfant eybens, danse adulte eybens, cours de danse enfant eybens" />
         <title>Impulsion</title>
-        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/jquery.js" type="text/javascript"></script>
+        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/bootstrap.bundle.min-4.1.3.js" type="text/javascript"></script>
         <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/loading.js" type="text/javascript"></script>
-        <script src="<?php echo ROOT_TO_PUBLIC; ?>/js/menu.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/lib/bootstrap.min-4.1.3.css" />
         <?php
         // get the current controller
         $controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
         $action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
         ?>
         <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/global.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/menu.css" />
-        <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/global.js" ></script>
-        <?php if ($controller == "index") { ?>	
-                    <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/index.css" />
-        <?php } ?>
-        <?php if ($controller == "liens" || $controller == "cours" || $controller == "agenda") { ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/body.css" />	
-        <?php } ?>
-        <?php if ($controller == "agenda") { ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/agenda.css" />
-        <?php } ?>
         <?php if ($controller == "liens") { ?>
             <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/contact.js" ></script>	
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/contact.css" />
         <?php } ?>
-        <?php if ($controller == "livreor") { ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/livreor.css" />  
-            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/livreor.js" ></script>          
-        <?php } ?>            
-        <?php if ($controller == "cours") { ?>  
-            <?php if ($action == "index") { ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/coursIndex.css" />
-            <?php } ?>           
-            <?php if ($action == "plan") { ?>
-                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/plan.css" />
-            <?php } ?>  
-            <?php if ($action == "tarif") { ?>
-                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/tarif.css" />
-            <?php } ?>   
-            <?php if ($action == "planning") { ?>
-                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/planning.css" />
-            <?php } ?>    
-            <?php if ($action == "dossier") { ?>
-                <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/dossier.css" />
-            <?php } ?>
-        <?php } ?>          
         <?php if ($controller == "galerie") { ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/galerie.css" />
             <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/rand_photo.js" ></script>
             <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/lib/thickbox.css" />
             <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/thickbox.js" ></script>
         <?php } ?>  
-        <?php if ($controller == "video") { ?> 
-            <script type="text/javascript" src="<?php echo ROOT_TO_PUBLIC; ?>/js/lib/jwplayer.js" ></script>
-            <link rel="stylesheet" type="text/css" href="<?php echo ROOT_TO_PUBLIC; ?>/css/video.css" />
-        <?php } ?>            
     </head> 
     <body>
-        <div id="container">
-            <div id="menu_section">
-                <div id="menu">
-                    <?php if ($controller == "index") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-in.jpg' 
-                             alt="Acceuil"
-                             width="104"
-                             height="42" />
-                    <?php } else { ?> 
-                        <a href="<?php echo $this->url(array('controller' => "index", "action" => "index"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-out.jpg' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-out.jpg';" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-acc-over.jpg'" 
-                                 alt="Acceuil"
-                                 width="104"
-                                 height="42" />
-                        </a>               
-                    <?php } ?>  
-
-                    <?php if ($controller == "cours") { ?>
-                        <img id="menuCours"
-                            src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-in.jpg' 
-                            alt="Les cours"
-                            width="132"
-                            height="42" />
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "index"), "", true); ?>">
-                            <img id="menuCours"
-                                 src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-out.jpg' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-out.jpg';" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-cours-over.jpg'" 
-                                 alt="Les cours"
-                                 width="132"
-                                 height="42" />
-                        </a>
-                    <?php } ?>
-
-                    <?php if ($controller == "liens") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-in.jpg' 
-                             alt="Contacts" 
-                             width="121"
-                             height="42"/>
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "liens", "action" => "index"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-out.jpg' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-out.jpg';" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-con-over.jpg'" 
-                                 alt="Contacts"
-                                 width="121"
-                                 height="42" />
-                        </a>
-                    <?php } ?>
-
-                    <?php if ($controller == "galerie") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-in.jpg' 
-                             alt="Galerie Photos" 
-                             width="196"
-                             height="42"/>
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "galerie", "action" => "index"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-out.jpg' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-out.jpg';" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-gal-over.jpg'" 
-                                 alt="Galerie Photos"
-                                 width="196"
-                                 height="42" />
-                        </a>
-                    <?php } ?>
-
-                    <?php if ($controller == "livreor") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-in.jpg' 
-                             alt="Livre d'or"
-                             width="129"
-                             height="42" />
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "livreor", "action" => "index"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-out.jpg' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-out.jpg';" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-lor-over.jpg'" 
-                                 alt="Livre d'or" 
-                                 width="129"
-                                 height="42"/>
-                        </a>
-                    <?php } ?>
-                        
-                    <a href="/mag">
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-shop-out.jpg' 
-                                onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-shop-out.jpg';" 
-                                onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-shop-over.jpg'" 
-                                alt="Magasin de photos" 
-                                width="155"
-                                height="42"/>
-                    </a>
-                    
-                    <?php $auth = Zend_Auth::getInstance(); 
-                    if ($auth->hasIdentity()) {
-                    echo '<span id="loginfields">Bonjour ' . $auth->getIdentity()->username
-                    . ' - <a href="'
-                    . $this->url(array('controller' => "login", "action" => "logout"))
-                    . '">se déconnecter</a></span>';
-                    }
-                    ?>
-                </div>       
-                <div id="sousMenuCours">
-                    <?php if ($controller == "cours" && $action == "plan") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-in.png'  
-                             alt="Plan des cours"
-                             width="76"
-                             height="43" />  
-                     <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "plan"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-out.png' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-out.png'" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-plan-over.png'" 
-                                 alt="Plan des cours"
-                                 width="76"
-                                 height="43" />
-                        </a>
-                    <?php } ?>
-                    <?php if ($controller == "cours" && $action == "planning") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-in.png' 
-                             alt="Planning des cours"
-                             width="116"
-                             height="43" />
-                    <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "planning"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-out.png' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-out.png'" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-planing-over.png'" 
-                                 alt="Planning des cours"
-                                 width="116"
-                                 height="43" />
-                        </a>
-                    <?php } ?>
-                    <?php if ($controller == "cours" && $action == "tarif") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-in.png' 
-                             alt="Les tarifs"
-                             width="78"
-                             height="43" />    
-                     <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "tarif"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-out.png' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-out.png'" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-tarifs-over.png'" 
-                                 alt="Les tarifs"
-                                 width="78"
-                                 height="43" />
-                        </a>
-                    <?php } ?>
-                    <?php if ($controller == "cours" && $action == "dossier") { ?>
-                        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-in.png' 
-                             alt="Dossiers d'inscription"
-                             width="154"
-                             height="43" />
-                     <?php } else { ?>
-                        <a href="<?php echo $this->url(array('controller' => "cours", "action" => "dossier"), "", true); ?>">
-                            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-out.png' 
-                                 onmouseout="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-out.png'" 
-                                 onmouseover="this.src='<?php echo ROOT_TO_PUBLIC; ?>/image/btn-inscription-over.png'" 
-                                 alt="Dossiers d'inscription"
-                                 width="154"
-                                 height="43" />
-                        </a>
-                    <?php } ?>
-                </div>
-            </div>         
-            <div id="body"> 
+    	<div id="main_div" class="container bg-white pb-3">
+    		<div>
+    			<img class="img-fluid" src="<?php echo ROOT_TO_PUBLIC; ?>/image/fond-menu.png" />
+    		</div>
+    		<div>
+                <?php $auth = Zend_Auth::getInstance(); 
+                if ($auth->hasIdentity()) {
+                echo '<span id="loginfields">Bonjour ' . $auth->getIdentity()->username
+                . ' - <a href="'
+                . $this->url(array('controller' => "login", "action" => "logout"))
+                . '">se déconnecter</a></span>';
+                }
+                ?>
+    		</div>
+            <ul class="nav nav-pills mt-3" style="background-color: gray">
+              <li class="nav-item">
+              	<?php if ($controller == "index") { ?>
+                	<a class="nav-link text-white active" href="<?php echo $this->url(array('controller' => "index", "action" => "index"), "", true); ?>">Accueil</a>
+                <?php } else { ?> 
+                	<a class="nav-link text-white" href="<?php echo $this->url(array('controller' => "index", "action" => "index"), "", true); ?>">Accueil</a>
+                <?php } ?>
+              </li>
+              <li class="nav-item dropdown">
+                <?php if ($controller == "cours") { ?>
+                    <a class="nav-link text-white dropdown-toggle active" data-toggle="dropdown" href="<?php echo $this->url(array('controller' => "cours", "action" => "index"), "", true); ?>" role="button" aria-haspopup="true" aria-expanded="false">Les cours</a>
+                <?php } else { ?>
+                    <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown" href="<?php echo $this->url(array('controller' => "cours", "action" => "index"), "", true); ?>" role="button" aria-haspopup="true" aria-expanded="false">Les cours</a>
+                <?php } ?>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="<?php echo $this->url(array('controller' => "cours", "action" => "plan"), "", true); ?>">Plan</a>
+                      <a class="dropdown-item" href="<?php echo $this->url(array('controller' => "cours", "action" => "planning"), "", true); ?>">Planning</a>
+                      <a class="dropdown-item" href="<?php echo $this->url(array('controller' => "cours", "action" => "tarif"), "", true); ?>">Tarifs</a>
+                      <a class="dropdown-item" href="<?php echo $this->url(array('controller' => "cours", "action" => "dossier"), "", true); ?>">Inscription</a>
+                    </div>
+              </li>
+              <li class="nav-item">
+                <?php if ($controller == "liens") { ?>
+                	<a class="nav-link text-white active" href="<?php echo $this->url(array('controller' => "liens", "action" => "index"), "", true); ?>">Contacts</a>
+                <?php } else { ?>
+                	<a class="nav-link text-white" href="<?php echo $this->url(array('controller' => "liens", "action" => "index"), "", true); ?>">Contacts</a>
+                <?php } ?>
+              </li>
+              <li class="nav-item">
+                <?php if ($controller == "galerie") { ?>
+	                <a class="nav-link text-white active" href="<?php echo $this->url(array('controller' => "galerie", "action" => "index"), "", true); ?>">Galerie Photos</a>
+                <?php } else { ?>
+	                <a class="nav-link text-white" href="<?php echo $this->url(array('controller' => "galerie", "action" => "index"), "", true); ?>">Galerie Photos</a>
+                <?php } ?>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/mag">Boutique photos</a>
+              </li>
+            </ul>
+            <div> 
                 <?php echo $this->layout()->content; ?>
             </div>  	
             <div id="loading"></div>
-        </div>
+    	</div>
     </body>
 </html>

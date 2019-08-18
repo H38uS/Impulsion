@@ -1,17 +1,48 @@
-<h3>
-    <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true); ?>">
-        &nbsp;Agenda&nbsp;
-    </a>
-</h3>
+<h4 class="mt-2">
+	<div class="alert alert-primary">
+    	Bienvenu sur le site de l'association de danse Impulsion
+	</div>
+</h4>
+<div class="row justify-content-around align-items-center mr-2">
+	<div class="col-6">
+        <h4 class="text-center">
+            <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true); ?>">
+                Agenda
+            </a>
+        </h4>
+        <?php
+        foreach ($this->actualites as $actualite) { ?>
+        	<div class="card my-2" style="width: 18rem; margin:auto">
+ 	          <h5>
+     	        <div class="card-header">
+              		<?php echo $actualite['titre']; ?>
+	            </div>
+              </h5>
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted"><?php echo $actualite['date']; ?></h6>
+                <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true) . '#' . $actualite['id']; ?>" class="btn btn-primary">En savoir plus...</a>
+              </div>
+            </div>
+        <?php } ?>
+	</div>
+	<div class="col-6 alert alert-warning">
+		<h4>Les différents cours</h4>
+		<ul>
+			<li>Cours bébé danseur 3 ans</li>
+			<li>Cours éveil 4 - 5 ans</li>
+			<li>Cours initiation 6 - 7 ans</li>
+			<li>Cours Modern' Jazz de 8 ans à l'âge adulte</li>
+			<li>Cours particulier</li>
+		</ul>
+	</div>
+</div>
+<h6>
+	<div class="alert alert-success text-center">
+	Venez nous rejoindre pour un cours d'essai !
+	</div>
+</h6>
+<div>
+	Cours dispensés sur Eybens par <span class="font-weight-bold">Laura Mosio</span>, professeure diplômée d'état.
+</div>
+<img class="img-fluid" src="<?php echo ROOT_TO_PUBLIC; ?>/image/fond.jpg" />
 
-<?php $i = 0; ?>
-<?php
-foreach ($this->actualites as $actualite) {
-    ?>
-    <div class="actualite">
-        <span class="bold"><?php echo $actualite['date']; ?></span><br />
-        <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true) . '#' . $actualite['id']; ?>">
-    <?php echo $actualite['titre']; ?>
-        </a>
-    </div>
-<?php } ?>

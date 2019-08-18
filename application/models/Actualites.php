@@ -105,7 +105,7 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
         $connexion = $this->connect();
 
         $query = "select * from " . self::TABLE_NAME . " " .
-				 "WHERE date > CURRENT_DATE() -1 ORDER BY date, heureDebut;";
+				 "ORDER BY date desc, heureDebut desc LIMIT 2;";
         $result = mysql_query($query, $connexion);
 
         if ($result) {

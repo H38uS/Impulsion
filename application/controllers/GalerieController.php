@@ -116,7 +116,8 @@ class GalerieController extends Zend_Controller_Action {
             $this->view->rep_photo = $this->getRepPhoto();
         }
 
-        $rep = $this->decode($this->_request->getParam("folder")) . "/";
+        $this->view->sousDossier = $this->decode($this->_request->getParam("folder"));
+        $rep = $this->view->sousDossier . "/";
         $sousrep = $this->decode($this->_request->getParam("subfolder")) . "/";
 
         if ($sousrep != "/") {

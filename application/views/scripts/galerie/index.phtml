@@ -1,21 +1,22 @@
 <?php if (!empty($this->rep_photo)) { 
     $reps = $this->rep_photo;
 ?>
+<div class="row justify-content-center">
     <?php for ($i=1; $i<6; $i++) { ?>
-    <div id="dossierup<?php echo $i; ?>">
-        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/dossier-0<?php echo $i; ?>-up.png' alt="" />
-    </div>
-    <div id="dossier<?php echo $i; ?>">
+    <div id="dossier<?php echo $i; ?>" class="col-12 col-md-6 col-lg-4 text-center">
         <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'folder' => $reps[$i-1]), null, true); ?>">
-            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/dossier-0<?php echo $i; ?>.png'  alt="" />
-            <?php echo $reps[$i-1]; ?>
+            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/icon-photo.png'  alt="" /><?php echo $reps[$i-1]; ?>
         </a>
     </div>
     <?php } ?>
 <?php }?>
+</div>
 
-<div id="photo_aleatoire">
+<div id="photo_aleatoire" class="text-center">
     <a href="<?php echo $this->init_photo; ?>" class="thickbox">
         <img src="<?php echo $this->init_photo_small; ?>" class="imagecontent" alt="Photo aléatoire" height="200"/>
     </a>
+</div>
+<div class="text-center mt-2">
+    <img class="img-fluid" src="<?php echo ROOT_TO_PUBLIC; ?>/image/fond-galerie-new.jpg" />
 </div>

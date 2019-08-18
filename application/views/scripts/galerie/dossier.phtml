@@ -1,101 +1,38 @@
-<?php if (!empty($this->rep_photo)) { 
+<?php if (!empty($this->rep_photo)) {
     $reps = $this->rep_photo;
-?>
+    ?>
+<div class="row justify-content-center">
     <?php for ($i=1; $i<6; $i++) { ?>
-    <div id="dossierup<?php echo $i; ?>">
-        <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/dossier-0<?php echo $i; ?>-up.png' alt="" />
-    </div>
-    <div id="dossier<?php echo $i; ?>">
+    <div id="dossier<?php echo $i; ?>" class="col-12 col-md-6 col-lg-4 text-center">
         <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'folder' => $reps[$i-1]), null, true); ?>">
-            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/dossier-0<?php echo $i; ?>.png'  alt="" />
-            <?php if ($this->currentfolder === $reps[$i-1]) {
-                echo '<span class="selected">' . $reps[$i-1] . '</span>';
-            } else {
-                echo $reps[$i-1]; 
-            } ?>
+            <img src='<?php echo ROOT_TO_PUBLIC; ?>/image/icon-photo.png'  alt="" /><?php echo $reps[$i-1]; ?>
         </a>
     </div>
     <?php } ?>
 <?php }?>
+</div>
 
 <?php /* sous dossier s'ils existent */ if (isset($this->sousdossier) && !empty($this->sousdossier)) { ?>
+Eléments du dossier <?php echo $this->sousDossier; ?> :
 <div id="sousdossier" >
-<table>
-<?php 
-    $size = count($this->sousdossier); 
-    $reps = $this->sousdossier;
-    for ($i=$size-1; $i > -1; $i--) {
-        $max = 1;
-?>
-    <?php if ($i > 0) { 
-        $max = 2;
-    } ?>
-      <tr>
-        <?php for ($j=0; $j<$max; $j++) { 
-            if ($j > 0)
-                $i--;
-        ?>      
-            <td>
-                <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'subfolder' => $reps[$i])); ?>"
-                title="<?php echo $reps[$i]; ?>">
-                    <img src="<?php echo ROOT_TO_PUBLIC; ?>/image/icon-photo.png" width="97" height="93" alt="répertoire" />
-                </a>
-            </td> 
-        <?php }
-            $i += $max -1;
-        ?>         
-      </tr>
-      <tr>
-        <?php for ($j=0; $j<$max; $j++) { 
-            if ($j > 0)
-                $i--;
-        ?>  
-            <td>
-                <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'subfolder' => $reps[$i])); ?>" title="<?php echo $reps[$i]; ?>">
-                    <?php if ($this->currentsubfolder === $reps[$i]) {
-                        echo '<span class="selected">' . $reps[$i] . '</span>';
-                    } else {
-                        echo $reps[$i]; 
-                    }
-                    ?>
-                </a>
-            </td>  
-        <?php } ?>         
-      </tr>
-<?php } ?>
-</table>
+<ul>
+    <?php foreach ($this->sousdossier as $dossier) { ?> 
+	<li>
+        <a href="<?php echo $this->url(array('controller' => 'galerie', 'action' => 'dossier', 'subfolder' => $dossier)); ?>"
+        title="<?php echo $dossier; ?>"><?php echo $dossier; ?>
+        </a>
+	</li>
+    <?php } ?>
+</ul>
 </div>
 <?php }?>
 
 <?php /* Les photos du sous dossier ! */ if (isset($this->photos) && !empty($this->photos)) { ?>
-<div id="espacePhotos">
-    <table>
-        <?php
-        $i = 0;
-        foreach ($this->photos as $photo) {
-            if ($i % 3 == 0) {
-                // nouvelle ligne 
-                ?>
-                <tr>
-                <?php } ?>
-                <td class="photo">
-                    <a href="<?php echo $this->smallToBig($photo['content']); ?>" class="thickbox" rel="photo_dossier">
-                        <img src="<?php echo $photo['content']; ?>" alt="" class="imagecontent" <?php if (isset($photo['larghaut'])) echo $photo['larghaut']; else echo 'height="100"';?> />
-                    </a>
-                </td>
-                <?php
-                if ($i % 3 == 3) {
-                    // nouvelle ligne 
-                    ?>
-                </tr>
-                <?php
-            }
-            $i++;
-        }
-        if ($i % 4 != 3) {
-            echo "</tr>";
-        }
-        ?>
-    </table>
+<div class="row justify-content-start">
+	<?php foreach ($this->photos as $photo) { ?>
+	<a href="<?php echo $this->smallToBig($photo['content']); ?>" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center thickbox mb-2">
+		<img class="imagecontent" src="<?php echo $photo['content']; ?>" alt="" <?php if (isset($photo['larghaut'])) echo $photo['larghaut']; else echo 'height="100"';?> />
+	</a>
+    <?php } ?>
 </div>
 <?php } 

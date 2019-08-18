@@ -1,11 +1,12 @@
-<table id="coordonnee">
+<div class="container">
+<table class="table table-striped mt-3">
 	<tr>
-		<td class="firstcol">Pour les renseignements liés à la danse elle-même ou l'absence d’un(e) élève</td>
+		<td>Pour les renseignements liés à la danse elle-même ou l'absence d’un(e) élève</td>
 		<td>Laura Mosio<br />Professeur de danse Modern' Jazz</td>
 		<td><img id="laura" class="sendemail imagecontent" src="<?php echo ROOT_TO_PUBLIC; ?>/image/e-mail.png" height="50" alt="Lui envoyer un email" /></td>
                 <td>tél : 06&nbsp;83&nbsp;83&nbsp;51&nbsp;67</td>
 	</tr>
-	<tr class="middle">
+	<tr>
 		<td class="firstcol">Pour tous les renseignements d’ordre administratif : inscription, dossier d’inscription, questions sur les horaires, les jours, etc.</td>
 		<td>Anita Petrowitch<br />Présidente de l'association Impulsion.</td>
 		<td><img id="anita" class="sendemail imagecontent" src="<?php echo ROOT_TO_PUBLIC; ?>/image/e-mail.png" height="50" alt="Lui envoyer un email" /></td>
@@ -15,66 +16,63 @@
 	    <td class="firstcol">Pour tout problème, ou suggestion concernant le site web</td>
 		<td>Jordan Mosio<br />Webmaster</td>
 		<td><img id="jordan" class="sendemail imagecontent" src="<?php echo ROOT_TO_PUBLIC; ?>/image/e-mail.png" height="50" alt="Lui envoyer un email" /></td>
+		<td></td>
 	</tr>
 </table>
+</div>
 
-<form action="liens/sendemail" method="post" onsubmit="return checkform()">
-	<div>		
-		<table>
-			<tr>
-				<td>Envoyer un email à </td>
-				<td>
-					<select name="sendto">
-  						<option value="laura">Laura Mosio</option>
-  						<option value="anita">Anita Petrowitch</option>
-  						<option value="jordan">Jordan Mosio</option>
-					</select> 
-				</td>
-			</tr>
-			<tr>
-				<td>Votre adresse mail </td>
-				<td>
-					<input name="mailaddress" id="mailaddress" type="text" size="50" value="" />
-					<div class="error" id="mailerror"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>Votre prénom</td>
-				<td>
-					<input name="firstname" id="firstname" type="text" size="20" value="" />
-					<div class="error" id="firstnameerror"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>Votre nom</td>
-				<td>
-					<input name="surname" id="surname" type="text" size="20" value="" />
-					<div class="error" id="surnameerror"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>Objet</td>
-				<td>
-					<input name="subject" id="subject" type="text" size="30" value="" />
-					<div class="error" id="subjecterror"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>Message</td>
-				<td>
-					<textarea name="message" id="message" rows="5" cols="60" ></textarea>
-					<div class="error" id="messageareaerror"></div>
-				</td>
-			</tr>
-		</table>
-	</div>
-    <div id="submit"><input type="submit" value="Envoyer !" /></div>
-</form> 
+<div class="row">
+    <div class="col-auto mx-auto">
+        <form style="display:none;" action="liens/sendemail" method="post" onsubmit="return checkform()">
+        	<div class="form-group">
+        		<label for="form_sendto">Envoyer un email à</label>
+				<select id="form_sendto" class="form-control" name="sendto">
+					<option value="laura">Laura Mosio</option>
+					<option value="anita">Anita Petrowitch</option>
+					<option value="jordan">Jordan Mosio</option>
+				</select> 
+        	</div>
+        	<div class="form-group">
+        		<label for="mailaddress">Votre adresse mail</label>
+				<input name="mailaddress" class="form-control" id="mailaddress" type="text" size="50" value="" />
+				<div class="invalid-feedback" id="mailerror"></div>
+        	</div>
+        	<div class="form-group">
+        		<label for="firstname">Votre prénom</label>
+				<input name="firstname" class="form-control" id="firstname" type="text" size="20" value="" />
+				<div class="invalid-feedback" id="firstnameerror"></div>
+        	</div>
+        	<div class="form-group">
+        		<label for="surname">Votre nom</label>
+				<input name="surname" class="form-control" id="surname" type="text" size="20" value="" />
+				<div class="invalid-feedback" id="surnameerror"></div>
+        	</div>
+        	<div class="form-group">
+        		<label for="subject">Objet</label>
+				<input name="subject" class="form-control" id="subject" type="text" size="30" value="" />
+				<div class="invalid-feedback" id="subjecterror"></div>
+        	</div>
+        	<div class="form-group">
+        		<label for="message">Message</label>
+				<textarea name="message" class="form-control" id="message" rows="5" cols="60" ></textarea>
+				<div class="invalid-feedback" id="messageareaerror"></div>
+        	</div>
+        	<div class="text-center">
+            	<button type="submit" class="btn btn-primary">Envoyer !</button>
+        	</div>
+        </form> 
+    </div>
+</div>
 
-<div class="droite">
-    <p>Les couriers sont à adresser à : <br />
-        Mme Pétrowitch<br />
-        Association Impulsion<br />
-        29 rue Jean Moulin<br />
-        38320 Eybens</p>
+<div class="row justify-content-end pr-5">
+    <div class="col-auto alert-primary alert">
+        <p>Les couriers sont à adresser à <br />
+            <span class="font-weight-bold">
+            Mme Pétrowitch<br />
+            Association Impulsion<br />
+            29 rue Jean Moulin<br />
+            38320 Eybens
+            </span>
+            </p>
+    </div>
 </div>

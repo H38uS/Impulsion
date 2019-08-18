@@ -1,110 +1,12 @@
-body, html
-{
-    height: 100%;
+html, body {
+	height: 100%;
 }
 
-body
-{
-    margin: 0px;
-    padding: 0px;
-    font-size: 100%;
-    line-height: 1.6;
-    font-family: arial,helvetica,"bitstream vera sans",sans-serif;
-    color: #000000;
-    background-color: grey; 
-    background-attachment:fixed;
+body {
+    background-color: gray; 
 }
 
-a img {
-    border: none;
-}
-
-/* ********** Structure ********* */
-
-#container {
-    position: absolute;
-    left: 640px;
-    top:  400px;
-    height: 800px;
-    width: 1280px;
-    min-width:1280px;
-    margin-left: -640px; /* moitié de width */
-    margin-top: -400px; /* moitié de height */
-    background: url("/public/image/fond.jpg");
-}
-
-#body {
-    z-index: 1;
-    position: absolute;
-    top:248px;
-    left:21px; 
-    width:1238px; 
-    height: 530px;    
-    overflow: auto;
-}
-
-/* ******** Format commun ******* */
-
-#center 
-{
-    text-align: center;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-a:link, #body a:visited, #body a:active {
-    color: 	#2989d8;
-    text-decoration:none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration:underline;
-}
-
-.error
-{
-    font-size:80%;
-    font-style:italic;
-    color:red;	
-}
-
-#loading
-{
-    display:none;
-    padding:9px 5px 5px 5px;
-
-    position:fixed;
-    top:300px;
-    left:50%;
-    margin-left:-170px;
-
-    background-color:#ffffff;
-    border: solid 1px #136295;
-    -webkit-box-shadow: 0 2px 1px #136295;
-    box-shadow: 0 1px 10px #136295;
-    border-radius: 10px;
-}
-
-#loading > img {
-    border: none;
-}
-
-#loadingtext
-{
-    vertical-align: top;	
-    margin-left: 10px;
-    padding-right: 10px;
-}
-
-/* Zend form */
-dt {
-    float: left;
-}
-
-.zendForm {
-    margin-left: 20%;
-    max-width: 300px;
+#main_div {
+    height: auto !important;
+    min-height: 100%;
 }
