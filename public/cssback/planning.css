@@ -5,6 +5,7 @@
 	text-align: left;
 	width: 68%;
 	padding-bottom: 50px;
+	overflow-x: scroll;
 }
 
 /* design des tableaux */

@@ -105,7 +105,13 @@ class Default_Model_Groupes extends Default_Model_AbstractBdd {
                     $minutes = "1 heure";
                 }
                 else if ($minutes > 60) {
-                    $minutes = "1 heure " . ($minutes - 60);
+                    $initial = $minutes;
+                    if ($minutes > 120) {
+                        $minutes = ((int) ($minutes / 60)) . " heures";
+                    } else {
+                        $minutes = "1 heure";
+                    }
+                    $minutes .= " " . ($initial % 60);
                 }
                 else {
                     $minutes = $minutes . " min";

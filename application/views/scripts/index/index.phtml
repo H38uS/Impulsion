@@ -3,38 +3,39 @@
     	Bienvenu sur le site de l'association de danse Impulsion
 	</div>
 </h4>
-<div class="row justify-content-around align-items-center mr-2">
-	<div class="col-6">
-        <h4 class="text-center">
-            <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true); ?>">
-                Agenda
-            </a>
-        </h4>
-        <?php
-        foreach ($this->actualites as $actualite) { ?>
-        	<div class="card my-2" style="width: 18rem; margin:auto">
- 	          <h5>
-     	        <div class="card-header">
-              		<?php echo $actualite['titre']; ?>
-	            </div>
-              </h5>
-              <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo $actualite['date']; ?></h6>
-                <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true) . '#' . $actualite['id']; ?>" class="btn btn-primary">En savoir plus...</a>
-              </div>
-            </div>
-        <?php } ?>
-	</div>
-	<div class="col-6 alert alert-warning">
-		<h4>Les différents cours</h4>
-		<ul class="mb-0">
-			<li>Cours bébé danseur 3 ans</li>
-			<li>Cours éveil 4 - 5 ans</li>
-			<li>Cours initiation 6 - 7 ans</li>
-			<li>Cours Modern' Jazz de 8 ans à l'âge adulte</li>
-			<li>Cours particulier</li>
-		</ul>
-	</div>
+<div class="container">
+    <div class="row justify-content-around align-items-center">
+    	<div class="col-12 col-md-6">
+            <h4 class="text-center">
+                <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true); ?>">
+                    Agenda
+                </a>
+            </h4>
+            <?php
+            foreach ($this->actualites as $actualite) { ?>
+            	<div class="card my-2" style="width: 18rem; margin:auto">
+     	          <h5>
+         	        <div class="card-header">
+                  		<?php echo $actualite['titre']; ?>
+    	            </div>
+                  </h5>
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $actualite['date']; ?></h6>
+                    <a href="<?php echo $this->url(array('controller' => "agenda", "action" => "index"), "", true) . '#' . $actualite['id']; ?>" class="btn btn-primary">En savoir plus...</a>
+                  </div>
+                </div>
+            <?php } ?>
+    	</div>
+    	<div class="col-12 col-md-6 alert alert-warning">
+    		<h4>Les différents cours</h4>
+    		<ul class="mb-0">
+    			<li>Cours éveil 4 - 5 ans</li>
+    			<li>Cours initiation 6 - 7 ans</li>
+    			<li>Cours Modern' Jazz de 8 ans à l'âge adulte</li>
+    			<li>Cours particulier</li>
+    		</ul>
+    	</div>
+    </div>
 </div>
 <h6>
 	<div class="alert alert-success text-center">
