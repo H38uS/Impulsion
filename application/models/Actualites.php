@@ -31,6 +31,7 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
         $connexion = $this->connect();
 
         $query = "select * from " . self::TABLE_NAME . " " .
+                 " where date > now() " .
 				 "ORDER BY date DESC, heureDebut DESC;";
         $result = mysql_query($query, $connexion);
 
@@ -105,7 +106,8 @@ class Default_Model_Actualites extends Default_Model_AbstractBdd {
         $connexion = $this->connect();
 
         $query = "select * from " . self::TABLE_NAME . " " .
-				 "ORDER BY date desc, heureDebut desc LIMIT 2;";
+                 " where date > now() " .
+				 "ORDER BY date asc, heureDebut asc LIMIT 2;";
         $result = mysql_query($query, $connexion);
 
         if ($result) {
