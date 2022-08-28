@@ -30,6 +30,6 @@ function createMarkerInfoWindow(latLng, map, text)
 
 $(document).ready(function() {
     initialize(45.153552,5.748485, "map1", "Salle Odyssée");
-    initialize(45.154867,5.748854, "map2", "La maison des associations");  
+    initialize(45.148873238766214, 5.753451803899589, "map2", "La maison des associations");
     initialize(45.147419,5.744918, "map3", "Ecole des Ruires");  
 });
